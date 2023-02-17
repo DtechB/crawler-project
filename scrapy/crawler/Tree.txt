@@ -1,0 +1,436 @@
+Site
+├── www.linkedin.com
+│   └── in
+│       └── %D9%85%D8%B1%DA%A9%D8%B2-%D8%AA%D8%AE%D8%B5%D8%B5%DB%8C-%D8%A2%D9%BE%D8%A7-%D9%85%D8%B1%DA%A9%D8%B2-%D8%AA%D8%AE%D8%B5%D8%B5%DB%8C-%D8%A2%D9%BE%D8%A7-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF-ba9069192
+├── t.me
+│   ├── joinchat
+│   │   └── AAAAAFN4QochaMIf4UbC2Q
+│   └── offsecmag
+├── cert.shahroodut.ac.ir
+│   ├── %d8%ae%d8%af%d9%85%d8%a7%d8%aa-%d8%a7%d9%85%d9%86%e2%80%8c%d8%b3%d8%a7%d8%b2%db%8c
+│   ├── %d9%85%d8%b4%d8%a7%d9%88%d8%b1%d9%87-%d8%a7%d9%85%d9%86%db%8c%d8%aa%db%8c
+│   ├── %d8%af%d8%b1%d8%ae%d9%88%d8%a7%d8%b3%d8%aa-%d8%a2%d8%b2%d9%85%d9%88%d9%86-%d9%86%d9%81%d9%88%d8%b0-%d9%be%d8%b0%db%8c%d8%b1%db%8c
+│   ├── %d8%af%d8%b1%d8%ae%d9%88%d8%a7%d8%b3%d8%aa-%da%af%d8%b2%d8%a7%d8%b1%d8%b4-%d8%a2%d8%b3%db%8c%d8%a8-%d9%be%d8%b0%db%8c%d8%b1%db%8c
+│   ├── %d9%85%d9%82%d8%a7%d9%84%d8%a7%d8%aa
+│   ├── news
+│   │   ├── ?term&orderby=date&order=desc
+│   │   ├── ?term&orderby=name&order=desc
+│   │   ├── ?term&orderby=date&order=DESC
+│   │   ├── ?term&orderby=date&order=ASC
+│   │   ├── general
+│   │   │   └── iranian-hackers-charged-in-march-are-still-actively-phishing-universities
+│   │   ├── microsoft
+│   │   │   ├── microsoft-outlook-for-android-gets-spoofing-vulnerability-fix
+│   │   │   └── microsoft-april-2020-patch-tuesday-fixes-3-zero-days-15-critical-flaws
+│   │   └── security
+│   │       ├── credit-card-thieves-target-woocommerce-sites-with-new-skimmer
+│   │       ├── ninja-forms-wordpress-plugin-patch-prevents-takeover-of-1m-sites
+│   │       ├── new-vcrypt-ransomware-locks-files-in-password-protected-7zips
+│   │       └── vmware-fixes-critical-vulnerability-in-workstation-and-fusion
+│   ├── %d8%a7%d8%ae%d8%a8%d8%a7%d8%b1-%d9%85%d8%b1%da%a9%d8%b2-%d8%a2%d9%be%d8%a7
+│   ├── %d8%a7%d8%ae%d8%a8%d8%a7%d8%b1-%d8%a7%d9%85%d9%86%db%8c%d8%aa%db%8c
+│   ├── %d8%a7%d8%ae%db%8c%d8%b1%d8%aa%d8%b1%db%8c%d9%86-%d8%a2%d8%b3%db%8c%d8%a8-%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d9%87%d8%a7
+│   ├── %d8%ae%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d9%87-2
+│   ├── services
+│   ├── %da%a9%d8%a7%d9%88%d8%b4
+│   ├── %d8%b3%d8%a7%d9%85%d8%a7%d9%86%d9%87-%d9%be%d8%a7%d8%b1%d8%b3-%d9%be%d9%85-pars-pam
+│   ├── %d8%b3%d8%a7%d9%85%d8%a7%d9%86%d9%87-%d9%be%db%8c%da%a9%d8%a7%d8%b1-%d8%b1%d8%b3%db%8c%d8%af%da%af%db%8c-%db%8c%da%a9%d9%be%d8%a7%d8%b1%da%86%d9%87-%d8%a8%d9%87-%d8%b1%d8%ae%d8%af%d8%a7%d8%af%d9%87
+│   ├── %d8%b3%d8%a7%d9%85%d8%a7%d9%86%d9%87-%d9%87%d9%88%d8%b4%db%8c%d8%a7%d8%b1
+│   ├── %d8%b3%d8%a7%d9%85%d8%a7%d9%86%d9%87-%d8%ac%d8%b3%d8%aa%d8%ac%d9%88%da%af%d8%b1-%d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c
+│   ├── %d8%b3%d8%a7%d9%85%d8%a7%d9%86%d9%87-%d8%aa%d8%b4%d8%ae%db%8c%d8%b5-%d8%af%d8%a7%d9%85%d9%86%d9%87%e2%80%8c%d9%87%d8%a7%db%8c-%d9%81%db%8c%d8%b4%db%8c%d9%86%da%af
+│   ├── %d8%af%d9%88%d8%b1%d9%87-%d9%87%d8%a7%db%8c-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c
+│   ├── %d8%af%d9%88%d8%b1%d9%87-%d9%87%d8%a7%db%8c-%d8%ac%d8%a7%d8%b1%db%8c
+│   ├── %d8%a7%d8%b3%d8%aa%d8%b9%d9%84%d8%a7%d9%85-%da%af%d9%88%d8%a7%d9%87%db%8c-%d9%86%d8%a7%d9%85%d9%87
+│   ├── about
+│   │   └── versions
+│   ├── contact
+│   ├── %d8%af%d8%b9%d9%88%d8%aa-%d8%a8%d9%87-%d9%87%d9%85%da%a9%d8%a7%d8%b1%db%8c
+│   ├── ?page_id=13
+│   ├── %d8%af%d9%88%d8%b1%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d9%85%d9%82%d8%af%d9%85%d8%a7%d8%aa%db%8c-%d8%aa%d8%b3%d8%aa-%d9%86%d9%81%d9%88%d8%b0-%d8%a8%d8%a7-kali-linux
+│   ├── ?page_id=1815
+│   ├── ?page_id=1958
+│   ├── ?page_id=1846
+│   ├── ?page_id=1813
+│   ├── %d8%a8%d9%87%d8%b1%d9%87%e2%80%8c%d8%a8%d8%b1%d8%af%d8%a7%d8%b1%db%8c-%d9%81%d8%b9%d8%a7%d9%84-%d8%a7%d8%b2-%d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%b1%d9%88%d8%b2%d8%b5
+│   ├── 1400
+│   │   ├── 04
+│   │   │   ├── 16
+│   │   │   ├── 13
+│   │   │   ├── 09
+│   │   │   └── 26
+│   │   ├── 01
+│   │   │   ├── 29
+│   │   │   ├── 28
+│   │   │   │   └── android-q-to-hit-streets-sept-3
+│   │   │   ├── 20
+│   │   │   └── 11
+│   │   ├── 07
+│   │   │   ├── 05
+│   │   │   ├── 21
+│   │   │   │   └── wibattack-vulnerability-in-wib-sim-browser-can-let-attackers-globally-take-control-of-hundreds-of-millions-of-the-victim-mobile-phones-worldwide-to-make-a-phone-call-send-sms-to-any-phone-numbers
+│   │   │   └── 03
+│   │   ├── 03
+│   │   │   ├── 10
+│   │   │   │   └── privacy
+│   │   │   └── 18
+│   │   ├── 10
+│   │   │   ├── 23
+│   │   │   ├── 27
+│   │   │   ├── 19
+│   │   │   └── linux-sudo-run-as-root-flaw.html
+│   │   ├── 08
+│   │   │   ├── 08
+│   │   │   ├── 25
+│   │   │   └── 22
+│   │   └── 06
+│   │       ├── 01
+│   │       └── 24
+│   ├── %d8%a8%d9%87%e2%80%8c%d8%b1%d9%88%d8%b2%d8%b1%d8%b3%d8%a7%d9%86%db%8c-%d8%a7%d8%b6%d8%b7%d8%b1%d8%a7%d8%b1%db%8c-%d9%85%d8%a7%db%8c%da%a9%d8%b1%d9%88%d8%b3%d8%a7%d9%81%d8%aa-%d8%a8%d8%b1%d8%a7%db%8c-p
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-printnightmare-%d8%ae%d8%b7%d8%b1%d9%86%d8%a7%da%a9-%d8%af%d8%b1-print-spooler
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c%e2%80%8c%d9%87%d8%a7%db%8c-%d8%ac%d8%af%db%8c%d8%af-%d9%be%d8%b1%d9%88%d8%aa%da%a9%d9%84-5g
+│   ├── pro-ocean-%d8%a8%d8%af%d8%a7%d9%81%d8%b2%d8%a7%d8%b1-cryptojacking-%d8%ac%d8%af%db%8c%d8%af
+│   ├── 1399
+│   │   ├── 02
+│   │   │   ├── 30
+│   │   │   ├── 17
+│   │   │   └── 31
+│   │   └── 11
+│   │       ├── qualcomm-android-hacking.html
+│   │       ├── delegated-credentials-for-tls.html
+│   │       └── whatsapp-hacking-vulnerability.html
+│   ├── %d8%a8%d8%a7%d8%ac%e2%80%8c%d8%a7%d9%81%d8%b2%d8%a7%d8%b1-vcrypt
+│   ├── %d8%a8%d8%af%d8%a7%d9%81%d8%b2%d8%a7%d8%b1-skimmer-%da%a9%d8%a7%d8%b1%d8%aa-%d8%a7%d8%b9%d8%aa%d8%a8%d8%a7%d8%b1%db%8c-%d8%af%d8%b1-%d8%b3%d8%a7%db%8c%d8%aa%e2%80%8c%d9%87%d8%a7%db%8c-%d8%aa%d8%ac
+│   ├── %d8%a7%d8%b5%d9%84%d8%a7%d8%ad%db%8c%d9%87-%d8%a7%d9%85%d9%86%db%8c%d8%aa%db%8c-%d9%85%d8%a7%db%8c%da%a9%d8%b1%d9%88%d8%b3%d8%a7%d9%81%d8%aa-%d8%af%d8%b1-%d9%85%d8%a7%d9%87-%d8%a2%d9%88%d8%b1%db%8c
+│   ├── %d9%87%d9%85%d8%a7%db%8c%d8%b4-%d9%be%d8%af%d8%a7%d9%81%d9%86%d8%af-%d8%b3%d8%a7%db%8c%d8%a8%d8%b1%db%8c
+│   ├── %d8%af%d9%88%d8%b1%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d9%be%db%8c%d8%b4%d8%b1%d9%81%d8%aa%d9%87-%d9%84%db%8c%d9%86%d9%88%da%a9%d8%b3
+│   ├── %d9%81%d8%b1%d8%b5%d8%aa-%d8%b4%d8%ba%d9%84%db%8c-%d8%af%d9%88%d8%b1%d9%87-%d9%81%d8%b1%d8%b5%d8%aa-%d9%85%d8%b7%d8%a7%d9%84%d8%b9%d8%a7%d8%aa%db%8c-%d9%88-%d9%be%d8%b3%d8%a7%d8%af%da%a9%d8%aa%d8%b1
+│   ├── %d8%a7%d8%b7%d9%84%d8%a7%d8%b9%db%8c%d9%87-%d8%b9%d8%af%d9%85-%d8%a8%d8%b1%da%af%d8%b2%d8%a7%d8%b1%db%8c-%da%a9%d8%a7%d8%b1%da%af%d8%a7%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d9%85%d9%82%d8%af
+│   ├── 1398
+│   │   ├── 12
+│   │   │   ├── 06
+│   │   │   └── strandhogg-android-vulnerability.html
+│   │   └── 09
+│   │       ├── 07
+│   │       └── 04
+│   │           ├── facebook-phone-numbers-exposed
+│   │           └── high-severity-vulnerability-patched-in-real-time-find-and-replace-plugin
+│   ├── %d8%ad%d8%b0%d9%81-%d8%af%d8%b3%d8%aa%d8%b1%d8%b3%db%8c%e2%80%8c%d9%87%d8%a7%db%8c-admin-%d9%88-%d8%aa%d8%a3%d8%ab%db%8c%d8%b1-%d8%a2%d9%86-%d8%a8%d8%b1-%d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0
+│   ├── %d8%aa%da%a9%d8%a7%d9%85%d9%84-%d8%a8%d8%af%d8%a7%d9%81%d8%b2%d8%a7%d8%b1%d9%87%d8%a7%db%8c-%d9%85%d9%88%d8%a8%d8%a7%db%8c%d9%84%db%8c-%d8%af%d8%b1-%d8%b3%d8%a7%d9%84-2019
+│   ├── %d8%a7%d8%b1%d8%b2%db%8c%d8%a7%d8%a8%db%8c-%d8%a7%d9%85%d9%86%db%8c%d8%aa%db%8c-%d9%be%d8%b1%d9%88%d8%aa%da%a9%d9%84-diameter-%d8%af%d8%b1-%d8%b4%d8%a8%da%a9%d9%87%e2%80%8c%d9%87%d8%a7%db%8c-%d8%aa
+│   ├── %d8%a7%d9%85%d9%86%db%8c%d8%aa-%d8%b3%d8%a7%db%8c%d8%a8%d8%b1%db%8c-%d8%af%d8%b1-%d8%b3%d8%a7%d9%84-2020-%d9%88-%d9%be%d8%b3-%d8%a7%d8%b2-%d8%a2%d9%86
+│   ├── ?page_id=1854
+│   ├── category
+│   │   ├── learning
+│   │   ├── %d8%af%d9%88%d8%b1%d9%87-%d9%87%d8%a7%db%8c-%d8%ac%d8%a7%d8%b1%db%8c
+│   │   ├── product
+│   │   ├── article
+│   │   ├── com-news
+│   │   │   └── page
+│   │   │       ├── 2
+│   │   │       └── 3
+│   │   ├── sec-news
+│   │   └── dam-news
+│   ├── apa-new
+│   │   └── wp-content
+│   │       └── uploads
+│   │           ├── 2021
+│   │           ├── 2022
+│   │           ├── 2019
+│   │           └── 2020
+│   ├── threathuntingcourse
+│   ├── %d8%af%d9%88%d8%b1%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d8%aa%d8%b3%d8%aa-%d9%86%d9%81%d9%88%d8%b0-%d9%88%d8%a8
+│   ├── %da%a9%d8%a7%d8%b1%da%af%d8%a7%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d9%85%d9%82%d8%af%d9%85%d8%a7%d8%aa%db%8c-%d9%84%db%8c%d9%86%d9%88%da%a9%d8%b3
+│   ├── %da%a9%d8%a7%d8%b1%da%af%d8%a7%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d8%b3%db%8c%d8%b3%d8%aa%d9%85-%d9%85%d8%af%db%8c%d8%b1%db%8c%d8%aa-%d8%a7%d9%85%d9%86%db%8c%d8%aa-%d8%a7%d8%b7%d9%84%d8%a7
+│   ├── %d8%af%d9%88%d8%b1%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d9%85%d9%82%d8%af%d9%85%d8%a7%d8%aa%db%8c-%d8%aa%d8%b3%d8%aa-%d9%86%d9%81%d9%88%d8%b0-pwk
+│   ├── %da%a9%d8%a7%d8%b1%da%af%d8%a7%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%db%8c%d8%a7%d8%af%da%af%db%8c%d8%b1%db%8c-%d8%b9%d9%85%db%8c%d9%82
+│   ├── %d8%b3%d8%a7%d9%85%d8%a7%d9%86%d9%87-%d9%87%d8%b4%d8%af%d8%a7%d8%b1
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%a7%d8%ac%d8%b1%d8%a7%db%8c-%da%a9%d8%af-%d8%a7%d8%b2-%d8%b1%d8%a7%d9%87-%d8%af%d9%88%d8%b1-%d8%af%d8%b1-windows-defender
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c%e2%80%8c%d9%87%d8%a7%db%8c-%d9%85%d8%aa%d8%b9%d8%af%d8%af-%d8%af%d8%b1-%d8%b3%db%8c%d8%b3%d8%aa%d9%85%e2%80%8c%d8%b9%d8%a7%d9%85%d9%84
+│   ├── sigred-%d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c%e2%80%8c-%d8%a7%d8%ac%d8%b1%d8%a7%db%8c-%da%a9%d8%af-%d8%a7%d8%b2-%d8%b1%d8%a7%d9%87-%d8%af%d9%88%d8%b1-%d8%af%d8%b1-%d8%b3
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c%e2%80%8c%d9%87%d8%a7%db%8c-%da%86%d9%86%d8%af%da%af%d8%a7%d9%86%d9%87-%d8%af%d8%b1-%d9%85%d8%ad%d8%b5%d9%88%d9%84%d8%a7%d8%aa-vmware
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%af%d8%b1-%d9%86%d8%b1%d9%85%e2%80%8c%d8%a7%d9%81%d8%b2%d8%a7%d8%b1-openemr
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%a7%d8%ac%d8%b1%d8%a7%db%8c-%da%a9%d8%af-%d8%a7%d8%b2-%d8%b1%d8%a7%d9%87-%d8%af%d9%88%d8%b1-%d8%af%d8%b1-apache-tomcat
+│   ├── %d8%b3%d9%87-%d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%a8%d8%ad%d8%b1%d8%a7%d9%86%db%8c-%d8%af%d8%b1-%d9%86%d8%b1%d9%85%e2%80%8c%d8%a7%d9%81%d8%b2%d8%a7%d8%b1-adobe-acrobat-r
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%a8%d8%ad%d8%b1%d8%a7%d9%86%db%8c-%d8%af%d8%b1-%d8%b3%d8%b1%d9%88%d8%b1-%d9%88-%d9%85%d8%b1%d8%a7%da%a9%d8%b2-%d8%af%d8%a7%d8%af
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%a8%d8%ad%d8%b1%d8%a7%d9%86%db%8c-%d8%af%d8%b1-%d9%88%d8%a8-%d8%b3%d8%b1%d9%88%d8%b1-nginx
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%ac%d8%b9%d9%84-%d8%af%d8%b1%d8%ae%d9%88%d8%a7%d8%b3%d8%aa-cross-site-%d8%af%d8%b1-%d8%a7%d9%81%d8%b2%d9%88%d9%86%d9%87-ninja-forms
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%af%d8%b1-%d8%a7%d9%81%d8%b2%d9%88%d9%86%d9%87-%d9%88%d8%b1%d8%af%d9%be%d8%b1%d8%b3%db%8c-real-time-find-and-replace
+│   ├── %d8%a8%d9%87%d8%b1%d9%87%e2%80%8c%d8%a8%d8%b1%d8%af%d8%a7%d8%b1%db%8c-%d8%a7%d8%b2-%d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%aa%d8%b2%d8%b1%db%8c%d9%82-%d9%81%d8%b1%d9%85
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8-%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d9%88%d8%b5%d9%84%d9%87-%d9%86%d8%b4%d8%af%d9%87%e2%80%8c%db%8c-strandhogg-%d8%af%d8%b1-%d8%a7%d9%86%d8%af%d8%b1%d9%88%db%8c%d8%af
+│   ├── dejablue-%d8%a8%d8%a7%d8%b2%da%af%d8%b4%d8%aa-bluekeep
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%ac%d8%af%db%8c%d8%af-%d8%af%d8%b1-%d9%85%d8%a7%db%8c%da%a9%d8%b1%d9%88%d8%b3%d8%a7%d9%81%d8%aa-outlook
+│   ├── 2858-2
+│   ├── %d8%a8%d8%a7%da%af-%d8%ac%d8%af%db%8c%d8%af-%d9%be%db%8c%d8%a7%d9%85%e2%80%8c%d8%b1%d8%b3%d8%a7%d9%86-%d9%88%d8%a7%d8%aa%d8%b3-%d8%a7%d9%be-%d9%88-%d9%86%d8%b5%d8%a8-%d8%a7%d8%a8%d8%b2%d8%a7%d8%b1
+│   ├── %d8%ad%d9%81%d8%b1%d9%87-%d8%a7%d9%85%d9%86%db%8c%d8%aa%db%8c-%d9%85%d9%88%d8%ac%d9%88%d8%af-%d8%af%d8%b1-%d8%aa%d8%b1%d8%a7%d8%b4%d9%87-qualcomm-%d9%88-%d8%a7%d9%85%da%a9%d8%a7%d9%86-%d8%a8%d9%87
+│   ├── %d9%86%d9%85%d8%a7%db%8c%d9%86%d8%af%da%af%db%8c-%d8%a7%d8%b9%d8%aa%d8%a8%d8%a7%d8%b1%d9%86%d8%a7%d9%85%d9%87-%da%86%da%af%d9%88%d9%86%d9%87-%d8%a7%d9%85%d9%86%db%8c%d8%aa-%d9%be%d8%b1
+│   ├── %d8%ad%d9%85%d9%84%d8%a7%d8%aa-%da%af%d8%b3%d8%aa%d8%b1%d8%af%d9%87-%e2%80%8fddos%e2%80%8f-%d8%a8%d9%87-%d8%b3%d8%b1%d9%88%d8%b1%d9%87%d8%a7%db%8c-%d8%a7%d8%a8%d8%b1%d8%a2%d8%b1%d9%88%d8%a7%d9%86
+│   ├── xhelper-%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d9%87%e2%80%8c%db%8c-dropper-%d8%a7%d9%86%d8%af%d8%b1%d9%88%db%8c%d8%af%db%8c-%da%a9%d9%87-45-%d9%87%d8%b2%d8%a7%d8%b1-%d8%af%d8%b3%d8%aa%da%af%d8%a7%d9%87
+│   ├── %d9%86%d8%b3%d8%ae%d9%87-4-%d8%a7%d8%b3%d8%aa%d8%a7%d9%86%d8%af%d8%a7%d8%b1%d8%af-owasp
+│   ├── %d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d9%be%da%a9%db%8c%d8%ac-sudo-%d8%af%d8%b1-%d9%84%db%8c%d9%86%d9%88%da%a9%d8%b3
+│   ├── wibattack-%d8%a2%d8%b3%db%8c%d8%a8-%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d9%85%d8%b4%d8%a7%d8%a8%d9%87-simjacker-%d8%af%d8%b1-%d8%b3%db%8c%d9%85%e2%80%8c%da%a9%d8%a7%d8%b1%d8%aa-%d9%87%d8%a7
+│   ├── simjacker-%d8%ac%d8%a7%d8%b3%d9%88%d8%b3%db%8c-%d8%a7%d8%b2-%d9%87%d8%b1-%da%af%d9%88%d8%b4%db%8c-%d9%85%d9%88%d8%a8%d8%a7%db%8c%d9%84-%d8%aa%d9%86%d9%87%d8%a7-%d8%a8%d8%a7-%d8%a7%d8%b1
+│   ├── %d9%87%da%a9%d8%b1%d9%87%d8%a7%db%8c-%da%a9%d9%88%d8%a8%d8%a7%d9%84%d8%aa-%d8%af%db%8c%da%a9%d9%86%d8%b2-%d9%87%d9%85%da%86%d9%86%d8%a7%d9%86-%d8%a8%d9%87-%d9%81%db%8c%d8%b4%db%8c%d9%86%da%af-%d8%af
+│   ├── %d8%a7%d9%81%d8%b4%d8%a7%db%8c-%d8%a7%d8%b7%d9%84%d8%a7%d8%b9%d8%a7%d8%aa-419-%d9%85%db%8c%d9%84%db%8c%d9%88%d9%86-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1-%d9%81%db%8c%d8%b3%d8%a8%d9%88%da%a9-%d8%a8%d8%b5
+│   ├── %d8%a7%d9%86%d8%af%d8%b1%d9%88%db%8c%d8%af-%d8%af%d8%b1-%d9%86%d8%b3%d8%ae%d9%87-%d8%ac%d8%af%db%8c%d8%af-%d8%b3%db%8c%d8%b3%d8%aa%d9%85-%d8%b9%d8%a7%d9%85%d9%84%e2%80%8c%d9%87%d8%a7%db%8c-%d8%ae
+│   ├── %d8%a8%d8%a7%d8%b2%d8%af%db%8c%d8%af-%d8%a7%d8%b2-%db%8c%da%a9-%d9%88%d8%a8%d8%b3%d8%a7%db%8c%d8%aa-%d8%a2%d9%84%d9%88%d8%af%d9%87-%d8%a8%d8%a7-iphone-%d9%85%d9%86%d8%ac%d8%b1-%d8%a8%d9%87-%d8%b3
+│   ├── %da%a9%d8%b4%d9%81-%d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-dos-%d8%af%d8%b1-%d8%b1%d9%88%d8%aa%d8%b1%d9%87%d8%a7%db%8c-%d9%85%db%8c%da%a9%d8%b1%d9%88%d8%aa%db%8c%da%a9
+│   ├── %d9%85%d8%b1%da%a9%d8%b2-%d8%a2%d9%be%d8%a7-%d8%af%d8%a7%d9%86%d8%b4%da%af%d8%a7%d9%87-%d8%b5%d9%86%d8%b9%d8%aa%db%8c-%d8%b4%d8%a7%d9%87%d8%b1%d9%88%d8%af-%d8%b1%d8%a7%d9%87-%d8%a7%d9%86%d8%af%d8%a7
+│   ├── %da%a9%d8%b4%d9%81-%d8%a2%d8%b3%db%8c%d8%a8%e2%80%8c%d9%be%d8%b0%db%8c%d8%b1%db%8c-%d8%b1%d9%88%d8%b2%d8%b5%d9%81%d8%b1%d9%85-%d8%af%d8%b1-%d9%81%d8%a7%db%8c%d8%b1%d9%81%d8%a7%da%a9%d8%b3
+│   ├── %d9%82%d8%b7%d8%b9-%d8%a7%d8%aa%d8%b5%d8%a7%d9%84-%d8%af%d8%b1%d8%a7%db%8c%d9%88%d8%b1%d9%87%d8%a7%db%8c-%d9%82%d8%af%db%8c%d9%85%db%8c-%d9%88%d8%a7%db%8c%e2%80%8c%d9%81%d8%a7%db%8c-%d8%af%d8%b1
+│   ├── %d8%a8%d8%af%d8%a7%d9%81%d8%b2%d8%a7%d8%b1-%d8%ac%d8%af%db%8c%d8%af-%d8%a7%d9%86%d8%af%d8%b1%d9%88%db%8c%d8%af%db%8c-%d8%a8%d9%87-%d9%86%d8%a7%d9%85-gustuff
+│   ├── %d8%a8%d8%af%d8%a7%d9%81%d8%b2%d8%a7%d8%b1-%d8%ac%d8%af%db%8c%d8%af-%d8%a7%d9%86%d8%af%d8%b1%d9%88%db%8c%d8%af%db%8c-%da%a9%d9%87-%d8%a7%d8%b2-%da%a9%d8%b1%d9%88%d9%85-%d8%a8%d8%b1%d8%a7%db%8c-%d8%a8
+│   ├── %d8%a8%d8%b1%da%af%d8%b2%d8%a7%d8%b1%db%8c-%da%a9%d8%a7%d8%b1%da%af%d8%a7%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%db%8c%d8%a7%d8%af%da%af%db%8c%d8%b1%db%8c-%d8%b9%d9%85%db%8c%d9%82
+│   ├── product
+│   │   ├── threathuntingcourse
+│   │   ├── %d8%af%d9%88%d8%b1%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d9%be%db%8c%d8%b4%d8%b1%d9%81%d8%aa%d9%87-%d9%84%db%8c%d9%86%d9%88%da%a9%d8%b3-%da%a9%d8%a7%d9%84%db%8c
+│   │   ├── %d8%af%d9%88%d8%b1%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d9%be%db%8c%d8%b4%d8%b1%d9%81%d8%aa%d9%87-%d9%84%db%8c%d9%86%d9%88%da%a9%d8%b3
+│   │   └── %d8%af%d9%88%d8%b1%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d8%aa%d8%b3%d8%aa-%d9%86%d9%81%d9%88%d8%b0-pwk
+│   ├── author
+│   │   └── admin
+│   ├── %d8%a2%db%8c%d8%a7-%d8%a7%d8%a8%d8%b2%d8%a7%d8%b1%d9%87%d8%a7%db%8c-%d8%b1%d8%a7%db%8c%da%af%d8%a7%d9%86-%d8%aa%d8%ad%d9%84%db%8c%d9%84-%d8%a7%d9%85%d9%86%db%8c%d8%aa-%d8%a7%d9%86%d8%af%d8%b1%d9%88
+│   ├── product-category
+│   │   └── %d8%af%d9%88%d8%b1%d9%87-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c
+│   ├── ?p=2331
+│   └── ?p=2922
+├── shahroodut.ac.ir
+│   └── fa
+├── certcc.ir
+├── ito.gov.ir
+├── cert.ir
+├── www.ict.gov.ir
+├── www.kavush.ir
+├── cafebazaar.ir
+│   └── app
+│       └── ir.fidar.kavush
+│           └── ?l=fa
+├── edu.shahroodut.ac.ir
+├── drweb.com
+├── www.group-ib.com
+├── fa.wikipedia.org
+│   └── wiki
+│       ├── %D8%B4%D8%A7%D9%87%D8%B1%D9%88%D8%AF
+│       ├── %D9%85%D9%82%D8%B7%D8%B9_%D8%AF%DA%A9%D8%AA%D8%B1%DB%8C
+│       ├── %D9%85%D9%82%D8%B7%D8%B9_%DA%A9%D8%A7%D8%B1%D8%B4%D9%86%D8%A7%D8%B3%DB%8C_%D8%A7%D8%B1%D8%B4%D8%AF
+│       ├── %D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C_%DA%A9%D8%B4%D8%A7%D9%88%D8%B1%D8%B2%DB%8C
+│       └── SIM_swap_scam
+├── mikrotik.com
+├── arxiv.org
+│   └── abs
+│       └── 1806.09059
+├── developer.android.com
+├── android-developers.googleblog.com
+│   └── 2019
+│       └── 05
+│           ├── whats-new-in-android-q-security.html
+│           └── 14
+│               ├── Security-Flaws-in-Adobe-Acrobat-Reader-Allow-Malicious-Program-to-Gain-Root-on-macOS-Silently
+│               └── acrobat-macos-update-critical
+├── nakedsecurity.sophos.com
+├── itefaba.com
+├── techcrunch.com
+├── en.wikipedia.org
+├── www.secureworks.com
+│   └── blog
+│       ├── cobalt-dickens-goes-back-to-school-again
+│       ├── simjacker-next-generation-spying-over-mobile
+│       ├── 2020
+│       │   └── 4
+│       │       └── 6
+│       └── cve-2019-11581-critical-template-injection-vulnerability-in-atlassian-jira-server-and-data
+├── certfa.com
+├── simjacker.com
+├── www.adaptivemobile.com
+├── ginnoslab.org
+├── opensource.srlabs.de
+│   └── projects
+│       └── simtester
+├── www.zdnet.com
+│   └── article
+│       └── new-sim-card-attack-disclosed-similar-to-simjacker
+├── usn.ubuntu.com
+│   └── 4154-1
+├── thehackernews.com
+├── access.redhat.com
+│   └── security
+│       ├── cve
+│       │   ├── cve-2019-14287
+│       │   └── 2020
+│       │       └── CVE-2020-12440.html
+│       ├── advisories
+│       │   ├── cve-2019-11931
+│       │   └── VMSA-2020-0015.html
+│       └── bulletin
+│           └── 2021-01-01
+├── www.sudo.ws
+│   └── alerts
+│       └── minus_1_uid.html
+├── www.owasp.org
+│   ├── index.php
+│   │   └── Category:OWASP_Application_Security_Verification_Standard_Project#tab=Downloads
+│   └── images
+│       └── 3
+│           └── 3a
+│               └── OWASP_Application_Security_Verification_Standard_4.0-FA_.pdf
+├── www.symantec.com
+│   ├── blogs
+│   │   └── threat-intelligence
+│   │       └── xhelper-android-malware
+│   └── security-center
+│       └── vulnerabilities
+│           ├── writeup
+│           │   └── 110911?om_rssid=sr-advisories
+│           └── Unrestricted_File_Upload
+├── www.arvancloud.com
+├── circle.arvancloud.com
+│   └── هشدار-حملات-ddos-تلگرام-mtproxy-ایران
+├── research.checkpoint.com
+│   └── the-road-to-qualcomm-trustzone-apps-fuzzing
+├── www.facebook.com
+├── www.bleepingcomputer.com
+├── cve.mitre.org
+│   └── cgi-bin
+│       ├── cvename.cgi?name=CVE-2019-1182
+│       └── cvename.cgi?name=CVE-2019-0708
+├── portal.msrc.microsoft.com
+│   ├── en-US
+│   │   └── security-guidance
+│   │       └── advisory
+│   │           ├── CVE-2019-1181
+│   │           ├── CVE-2019-1182
+│   │           ├── CVE-2019-1222
+│   │           ├── CVE-2019-1226
+│   │           ├── CVE-2020-0979
+│   │           ├── CVE-2020-0980
+│   │           ├── CVE-2020-0760
+│   │           ├── CVE-2020-0991
+│   │           ├── CVE-2020-0931
+│   │           ├── CVE-2020-0935
+│   │           ├── CVE-2020-0927
+│   │           ├── CVE-2020-0923
+│   │           ├── CVE-2020-0925
+│   │           ├── CVE-2020-0932
+│   │           ├── CVE-2020-0930
+│   │           ├── CVE-2020-0933
+│   │           ├── CVE-2020-0920
+│   │           ├── CVE-2020-0929
+│   │           ├── CVE-2020-0971
+│   │           ├── CVE-2020-0975
+│   │           ├── CVE-2020-0978
+│   │           ├── CVE-2020-0977
+│   │           ├── CVE-2020-0974
+│   │           ├── CVE-2020-0973
+│   │           ├── CVE-2020-0972
+│   │           ├── CVE-2020-0926
+│   │           ├── CVE-2020-0938
+│   │           ├── CVE-2020-0687
+│   │           ├── CVE-2020-0958
+│   │           ├── CVE-2020-1020
+│   │           ├── CVE-2020-0969
+│   │           ├── CVE-2020-0970
+│   │           ├── CVE-2020-0942
+│   │           ├── CVE-2020-0965
+│   │           ├── CVE-2020-0940
+│   │           ├── CVE-2020-0934
+│   │           ├── CVE-2020-1029
+│   │           ├── CVE-2020-1011
+│   │           ├── CVE-2020-1094
+│   │           ├── CVE-2020-1016
+│   │           ├── CVE-2020-0794
+│   │           ├── CVE-2020-1017
+│   │           ├── CVE-2020-0944
+│   │           ├── CVE-2020-1006
+│   │           ├── CVE-2020-1009
+│   │           ├── CVE-2020-0981
+│   │           ├── CVE-2020-1001
+│   │           ├── CVE-2020-0993
+│   │           ├── CVE-2020-1002
+│   │           ├── CVE-2020-0835
+│   │           ├── CVE-2020-0899
+│   │           ├── CVE-2020-0900
+│   │           ├── CVE-2020-0918
+│   │           ├── CVE-2020-0910
+│   │           ├── CVE-2020-0917
+│   │           ├── CVE-2020-0699
+│   │           ├── CVE-2020-1027
+│   │           ├── CVE-2020-1003
+│   │           ├── CVE-2020-0955
+│   │           ├── CVE-2020-1015
+│   │           ├── CVE-2020-1000
+│   │           ├── CVE-2020-1007
+│   │           ├── CVE-2020-0957
+│   │           ├── CVE-2020-0936
+│   │           ├── CVE-2020-0956
+│   │           ├── CVE-2020-0962
+│   │           ├── CVE-2020-0821
+│   │           ├── CVE-2020-0913
+│   │           ├── CVE-2020-0888
+│   │           ├── CVE-2020-0948
+│   │           ├── CVE-2020-0937
+│   │           ├── CVE-2020-0949
+│   │           ├── CVE-2020-0939
+│   │           ├── CVE-2020-0950
+│   │           ├── CVE-2020-0946
+│   │           ├── CVE-2020-0947
+│   │           ├── CVE-2020-0945
+│   │           └── CVE-2020-1350
+│   └── en-us
+│       ├── help
+│       │   └── 4569509
+│       │       └── windows-dns-server-remote-code-execution-vulnerability
+│       └── windows
+├── agio.com
+│   └── newsroom
+│       └── dejablue-the-return-of-bluekeep
+├── www.zerodayinitiative.com
+├── owasp.org
+│   └── www-community
+│       └── attacks
+│           └── csrf
+├── www.wordfence.com
+├── gist.github.com
+│   └── Glassware123
+│       └── 1023720bf4787375a04f32a0c12e956a
+├── vulmon.com
+│   └── vulnerabilitydetails?qid=CVE-2020-12440
+├── people.canonical.com
+│   └── ~ubuntu-security
+├── vuldb.com
+│   └── ?id.155282
+├── nvd.nist.gov
+│   └── vuln
+│       └── detail
+│           ├── CVE-2020-12440
+│           ├── CVE-2019-11581
+│           ├── CVE-2020-1350
+│           └── CVE-2021-1647
+├── www.tenable.com
+├── jira.atlassian.com
+│   └── browse
+│       └── JRASERVER-69532
+├── community.atlassian.com
+│   └── t5
+│       └── Jira-articles
+│           └── CVE-2019-11581-Critical-Security-Advisory-for-Jira-Server-and
+│               └── ba-p
+├── www.redtimmy.com
+│   └── java-hacking
+│       └── apache-tomcat-rce-by-deserialization-cve-2020-9484-write-up-and-exploit
+├── rekken.github.io
+│   └── 2020
+├── 9to5mac.com
+├── www.vmware.com
+├── github.com
+│   └── EmreOvunc
+│       ├── OpenEMR_Vulnerabilities.git
+│       └── OpenEMR_Vulnerabilities
+├── support.microsoft.com
+├── source.android.com
+├── threatpost.com
+│   └── google-warns-of-critical-android-remote-code-execution-bug
+│       └── 162756
+├── connect.isti.ir
+│   └── plans
+├── international.bmn.ir
+├── docs.microsoft.com
+├── therecord.media
+└── msrc.microsoft.com

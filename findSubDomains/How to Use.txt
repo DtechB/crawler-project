@@ -1,0 +1,1 @@
+python findSubDomains.py shahroodut.ac.ir

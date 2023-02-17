@@ -1,0 +1,12 @@
+CPython
+dnspython
+cffi
+greenlet
+gevent
+idna
+pyOpenSSL
+requests
+six
+urllib3
+psutil
+psycopg2
