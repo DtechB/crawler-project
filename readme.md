@@ -1,11 +1,11 @@
 # Alpha Project - Subdomain finder, Crawler and find broken links
 
-This is the undergraduate project of Mr. Daniyal Bayati and myself, who have developed this project in cooperation with each other.
-The description of this project is as follows:
-First, an internet address or link is taken from the user. Then its subdomains are checked first. The subdomains are checked based on a huge dictionary that consists of different possible types of words and phrases. (Also, this process is done using multi-threads in programming so that the checking time can be saved).
-After finding subdomain links, SSL certificates of these subdomains are checked. In this process, the details of the prepared SSL certificate are checked by using information databases and checking existing certificates.
-In the next step, the crawler comes into action and starts crawling all the links on the pages. This crawler is designed so that it can crawl up to several levels of the site. The description of the crawling process is like this, first the links on the main page are received, the crawler divides these links into internal and external categories. External links that are no longer related to the desired site are separated using its base link and there is no need to crawl more in that link!
-Internal links, which are a subset of the site, are crawled again as in the previous step and form a tree, the root of each node being the link on the first crawled page.
+This is the undergraduate project of Mr. Daniyal Bayati and myself, who have developed this project in cooperation with each other.<br />
+The description of this project is as follows:<br />
+First, an internet address or link is taken from the user. Then its subdomains are checked first. The subdomains are checked based on a huge dictionary that consists of different possible types of words and phrases. (Also, this process is done using multi-threads in programming so that the checking time can be saved).<br />
+After finding subdomain links, SSL certificates of these subdomains are checked. In this process, the details of the prepared SSL certificate are checked by using information databases and checking existing certificates.<br />
+In the next step, the crawler comes into action and starts crawling all the links on the pages. This crawler is designed so that it can crawl up to several levels of the site. The description of the crawling process is like this, first the links on the main page are received, the crawler divides these links into internal and external categories. External links that are no longer related to the desired site are separated using its base link and there is no need to crawl more in that link!<br />
+Internal links, which are a subset of the site, are crawled again as in the previous step and form a tree, the root of each node being the link on the first crawled page.<br />
 Also, if we have a link that is duplicated during the crawling process, it will not be saved and crawled again for optimal performance.
 
 ## Installation
@@ -47,7 +47,9 @@ Note: You can also use your favorite database, for example sqlite3 or Mysql, but
 <br />
 
 From now on, your work will be easy! You can create a Python virtual environment using the following command:
+```bash
 python -m venv venv
+```
 Note: The last argument used in the command is the name of the folder for which it is created!
 
 and activate it using the following command in the Windows environment:
@@ -57,11 +59,15 @@ and activate it using the following command in the Windows environment:
 ```
 
 Or use the following command to activate it in the Linux environment:
+```bash
 source venv/bin/activate
+```
 Note: Be aware that when you type this command, the name of the folder you created for the virtual environment must be venv and you must be in its parent folder.
 
 After activating the virtual environment, use the following command to install all the packages needed to use this program at once:
+```bash
 pip install -r requirements.txt
+```
 Note: Like the previous command, you must use this command in a place where the requirements.txt file is available.
 
 
@@ -111,5 +117,5 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-Copyright (C) 2023 Danial Bayati and Mostafa Fazli - All rights reserved
+Copyright (C) 2023 Danial Bayati and Mostafa Fazli - All rights reserved <br />
 Licenced By [MIT](https://choosealicense.com/licenses/mit/)
