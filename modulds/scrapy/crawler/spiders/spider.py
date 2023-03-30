@@ -37,7 +37,7 @@ sixth_depth_tree = []
 # Check connection with database
 def postgres_test():
     try:
-        conn = psycopg2.connect(database="website_monitoring", user="postgres", password="8540", host="127.0.0.1",
+        conn = psycopg2.connect(database="Alpha", user="postgres", password="123", host="127.0.0.1",
                                 port="5432")
         conn.close()
         return True
@@ -47,7 +47,7 @@ def postgres_test():
 
 """ Connect to database
  Database is postgressSQL """
-conn = psycopg2.connect(database="website_monitoring", user="postgres", password="8540", host="localhost", port="5432")
+conn = psycopg2.connect(database="Alpha", user="postgres", password="123", host="localhost", port="5432")
 cur = conn.cursor()
 
 

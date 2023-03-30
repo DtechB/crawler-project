@@ -19,7 +19,7 @@ except ImportError:
 
 """ Connect to database
  Database is postgressSQL """
-conn = psycopg2.connect(database="website_monitoring", user="postgres", password="8540", host="localhost", port="5432")
+conn = psycopg2.connect(database="Alpha", user="postgres", password="123", host="localhost", port="5432")
 cur = conn.cursor()
 
 sslList = []
@@ -28,7 +28,7 @@ sslList = []
 def AddSSL(url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired):
     if url not in sslList:
         sslList.append(url)
-        cur.execute("INSERT INTO ssl (url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired) \
+        cur.execute("INSERT INTO api_ssl (url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired) \
                                                   VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
             url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired))
         conn.commit()

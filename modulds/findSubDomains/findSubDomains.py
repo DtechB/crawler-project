@@ -14,7 +14,7 @@ from multiprocessing import cpu_count
 warnings.simplefilter("ignore", category=UserWarning)
 monkey.patch_all()
 
-conn = psycopg2.connect(database="website_monitoring", user="postgres", password="8540", host="localhost", port="5432")
+conn = psycopg2.connect(database="Alpha", user="postgres", password="123", host="localhost", port="5432")
 cur = conn.cursor()
 
 subdomains = []
@@ -22,7 +22,7 @@ subdomains = []
 
 # Fetch subdomains
 def FetchBrokenLinks():
-    cur.execute("SELECT id, base, subdomain,ip from subdomains")
+    cur.execute("SELECT id, base, subdomain,ip from api_subdomain")
     rows = cur.fetchall()
     for row in rows:
         subdomains.append(row[2])
@@ -32,7 +32,7 @@ def FetchBrokenLinks():
 def AddSubdomain(subdomain, ip):
     if subdomain not in subdomains:
         subdomains.append(subdomain)
-        cur.execute("INSERT INTO subdomains (base, subdomain,ip) \
+        cur.execute("INSERT INTO api_subdomain (base, subdomain,ip) \
                                                   VALUES ('{}', '{}', '{}')".format("sharoodut.ac.ir", subdomain, ip))
         conn.commit()
 
