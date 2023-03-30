@@ -6,7 +6,12 @@ First, an internet address or link is taken from the user. Then its subdomains a
 After finding subdomain links, SSL certificates of these subdomains are checked. In this process, the details of the prepared SSL certificate are checked by using information databases and checking existing certificates.<br />
 In the next step, the crawler comes into action and starts crawling all the links on the pages. This crawler is designed so that it can crawl up to several levels of the site. The description of the crawling process is like this, first the links on the main page are received, the crawler divides these links into internal and external categories. External links that are no longer related to the desired site are separated using its base link and there is no need to crawl more in that link!<br />
 Internal links, which are a subset of the site, are crawled again as in the previous step and form a tree, the root of each node being the link on the first crawled page.<br />
-Also, if we have a link that is duplicated during the crawling process, it will not be saved and crawled again for optimal performance.
+Also, if we have a link that is duplicated during the crawling process, it will not be saved and crawled again for optimal performance.<br />
+
+**NOTE:**
+You can use any part of the project that has been implemented in a modular way. Each of these facilities are implemented completely separately in the <strong>modules</strong> folder.
+
+---
 
 ## Installation
 
