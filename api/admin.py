@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subdomain
+from .models import Subdomain, SecureSocketsLayersCertificate
 
-# Register your models here.
 admin.site.register(Subdomain)
+admin.site.register(SecureSocketsLayersCertificate)

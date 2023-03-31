@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('subdomains/', views.getSubdomains),
-    path('ssls/', views.getSsls)
+    path('ssls/', views.getSecureSocketsLayersCertificate)
 ]
