@@ -13,10 +13,11 @@ You can use any part of the project that has been implemented in a modular way. 
 
 ---
 
-## Installation
-
+<details>
+<summary>Installation</summary>
 To install and start working with this project, you must first install Python.
-You can download and install the latest version of Python from the [Downlaod Python](https://www.python.org/downloads/)
+You can download and install the latest version of Python from the:
+<a href="https://www.python.org/downloads">Downlaod Python</a>
 
 **NOTE:**
 For better compatibility of the program and to avoid errors, it is recommended to install a version before the latest version, because some modules used in the project may not be compatible with the new version of Python and this causes interference. Let it be!
@@ -42,8 +43,8 @@ You can install the latest version of Django on your system.
 <br />
 
 In the next step, you need to install the Postgres database, to install this database you can install the latest version using the following link:
-https://www.postgresql.org/download
-
+<a href="https://www.postgresql.org/download">Downlaod PostgreSQL</a>
+<br />
 Note: You can also use your favorite database, for example sqlite3 or Mysql, but for this you need to modify the parts related to connecting to the database and tables again!
 
 
@@ -93,8 +94,9 @@ If you want to use the postgresql database, you need to install its special modu
 ```bash
 pip install mysql-connector-python
 ```
-
-## Usage
+</details>
+<details>
+<summary>Usage</summary>
 
 To use this program, you can easily go through three processes after going through the steps mentioned in the installation section
 
@@ -112,15 +114,28 @@ And finally run the program with the following command:
 ```bash
 python manage.py runserver
 ```
+</details>
 
-## Contributing
-
+<details>
+<summary>Contributing</summary>
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
-
 Please make sure to update tests as appropriate.
+</details>
 
-## License
+<details>
+<summary>License</summary>
+Copyright (C) 2023 <a href="https://github.com/DtechB">Danial Bayati</a> and <a href="https://github.com/MosFazli">Mostafa Fazli</a> - All rights reserved <br />
+Licenced By <a href="https://choosealicense.com/licenses/mit/">MIT</a>
+</details>
 
-Copyright (C) 2023 Danial Bayati and Mostafa Fazli - All rights reserved <br />
-Licenced By [MIT](https://choosealicense.com/licenses/mit/)
+## API Description:
+### Get Subdomains
+
+For getting all subdomains advanced, you can use this structure:<br />
+GET Request: http://127.0.0.1:8000/subdomains/
+
+### Get SSLs
+
+For getting all ssls, you can use this structure:<br />
+GET Request: http://127.0.0.1:8000/ssls/

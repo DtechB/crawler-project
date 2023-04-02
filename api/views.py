@@ -4,17 +4,18 @@ from rest_framework.decorators import api_view
 from .serializer import SubdomainSerializer, SecureSocketsLayersCertificateSerializer, urlsUncheckedSerializer, urlsCheckedSerializer
 from .models import Subdomain, SecureSocketsLayersCertificate, urlsUnchecked, urlsChecked
 import sys, os, json
-
+from django_filters.rest_framework import DjangoFilterBackend
 
 def runAnalyzer(url):
     os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyze.py" + " " + url)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def getSubdomains(request):
-    subdomain = Subdomain.objects.all()
-    serializer = SubdomainSerializer(subdomain, many=True)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        subdomain = Subdomain.objects.all()
+        serializer = SubdomainSerializer(subdomain, many=True)
+        return Response(serializer.data)
 
 
 @api_view(['GET'])

@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'drf_yasg',
     "corsheaders",
-    'api'
+    'api',
+    'django_filters'
 ]
 
 SITE_ID = 1
@@ -128,7 +129,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
-    )
+    ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 REST_USE_JWT = True
