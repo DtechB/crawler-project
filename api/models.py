@@ -19,3 +19,13 @@ class SecureSocketsLayersCertificate(models.Model):
     certiver = models.CharField(max_length=63)
     certialgo = models.CharField(max_length=63)
     expired = models.CharField(max_length=63)
+
+
+class urlsUnchecked(models.Model):
+    userID = models.CharField(max_length=31)
+    url = models.CharField(max_length=127)
+
+
+class urlsChecked(models.Model):
+    userID = models.CharField(max_length=31)
+    url = models.CharField(max_length=127)

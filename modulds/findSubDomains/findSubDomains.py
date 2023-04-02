@@ -59,11 +59,11 @@ class SubNameBrute:
         # load sub names
         self.subs = []  # subs in file
         self.goodsubs = []  # checks ok for further exploitation
-        self._load_subname('dict/subnames.txt', self.subs)
+        self._load_subname('C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/subnames.txt', self.subs)
 
         # load sub.sub names
         self.subsubs = []
-        self._load_subname('dict/next_sub.txt', self.subsubs)
+        self._load_subname('C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/next_sub.txt', self.subsubs)
 
         # results will save to target.txt
 
@@ -96,7 +96,7 @@ class SubNameBrute:
         pool = Pool(processors)
 
         # read dns ips and check one by one
-        for server in open('dict/dns_servers.txt').readlines():
+        for server in open('C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/dns_servers.txt').readlines():
             server = server.strip()
             if server:
                 pool.apply_async(self._test_server, (server,))

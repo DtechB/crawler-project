@@ -28,7 +28,7 @@ sslList = []
 def AddSSL(url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired):
     if url not in sslList:
         sslList.append(url)
-        cur.execute("INSERT INTO api_ssl (url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired) \
+        cur.execute("INSERT INTO api_securesocketslayerscertificate(url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired) \
                                                   VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
             url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired))
         conn.commit()
