@@ -3,6 +3,11 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializer import SubdomainSerializer, SecureSocketsLayersCertificateSerializer, urlsUncheckedSerializer, urlsCheckedSerializer
 from .models import Subdomain, SecureSocketsLayersCertificate, urlsUnchecked, urlsChecked
+import sys, os, json
+
+
+def runAnalyzer(url):
+    os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyze.py" + " " + url)
 
 
 @api_view(['GET'])
@@ -31,6 +36,8 @@ def urlsUncheckedView(request):
         serializer = urlsUncheckedSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            url = (request.data['url'])
+            runAnalyzer(url)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
