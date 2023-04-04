@@ -16,14 +16,26 @@ def getSubdomains(request):
         subdomain = Subdomain.objects.all()
         serializer = SubdomainSerializer(subdomain, many=True)
         return Response(serializer.data)
+    
+    elif request.method == 'POST':
+        data = Subdomain.objects.filter(base='sharoodut.ac.ir').values()
+        serializer = SubdomainSerializer(data, many=True)
+        return Response(serializer.data)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def getSecureSocketsLayersCertificate(request):
-    secureSocketsLayersCertificate = SecureSocketsLayersCertificate.objects.all()
-    serializer = SecureSocketsLayersCertificateSerializer(
-        secureSocketsLayersCertificate, many=True)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        secureSocketsLayersCertificate = SecureSocketsLayersCertificate.objects.all()
+        serializer = SecureSocketsLayersCertificateSerializer(
+            secureSocketsLayersCertificate, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        print(request.data['url'])
+        data = SecureSocketsLayersCertificate.objects.filter(url=request.data['url']).values()
+        serializer = SecureSocketsLayersCertificateSerializer(data, many=True)
+        return Response(serializer.data)
 
 
 @api_view(['GET', 'POST'])

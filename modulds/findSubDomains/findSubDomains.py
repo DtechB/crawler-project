@@ -29,11 +29,11 @@ def FetchBrokenLinks():
 
 
 # Add subdomain
-def AddSubdomain(subdomain, ip):
+def AddSubdomain(base, subdomain, ip):
     if subdomain not in subdomains:
         subdomains.append(subdomain)
         cur.execute("INSERT INTO api_subdomain (base, subdomain,ip) \
-                                                  VALUES ('{}', '{}', '{}')".format("sharoodut.ac.ir", subdomain, ip))
+                                                  VALUES ('{}', '{}', '{}')".format(base, subdomain, ip))
         conn.commit()
 
 
@@ -238,7 +238,7 @@ class SubNameBrute:
                 self.found_count += 1
                 ip_info = '{} \t {}'.format(cur_sub_domain, ips)
                 # print(ip_info)
-                AddSubdomain(cur_sub_domain, ips)
+                AddSubdomain(self.target,cur_sub_domain, ips)
                 self.outfile.write(cur_sub_domain + '\t' + ips + '\n')
                 self._print_domain(ip_info)
                 sys.stdout.flush()

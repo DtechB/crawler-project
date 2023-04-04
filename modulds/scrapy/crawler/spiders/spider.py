@@ -11,9 +11,10 @@ broken_link_list = []
 
 # Get URL and Level of crawling
 # url_input = input("Enter URL to crawling: ")
-# crawl_level = int(input("Enter Level of Crawling (set 0 for crawl just first page): "))
+crawl_level = int(input("Enter Level of Crawling (set 0 for crawl just first page): "))
 
-url_input = "cert.shahroodut.ac.ir"
+#url_input = "cert.shahroodut.ac.ir"
+    
 start_url_maker = "https://" + url_input + "/"
 crawl_level = 1
 
@@ -53,7 +54,7 @@ cur = conn.cursor()
 
 # Fetch broken links
 def FetchBrokenLinks():
-    cur.execute("SELECT id, site_url, broken_link from broken_urls")
+    cur.execute("SELECT id, site_url, broken_link from api_brokenUrls")
     rows = cur.fetchall()
     for row in rows:
         broken_link_list.append(row[2])
@@ -63,7 +64,7 @@ def FetchBrokenLinks():
 def AddBrokenURLs(broken_link):
     if broken_link not in broken_link_list:
         broken_link_list.append(broken_link)
-        cur.execute("INSERT INTO broken_urls (site_url, broken_link) \
+        cur.execute("INSERT INTO api_brokenUrls (site_url, broken_link) \
                                                   VALUES ('{}', '{}')".format(start_url_maker, broken_link))
         conn.commit()
 
@@ -84,7 +85,7 @@ hits_url = []
 
 
 def FetchUrls():
-    cur.execute("SELECT id, url, hits, broken_links_num from site")
+    cur.execute("SELECT id, url, hits, broken_links_num from api_urlchecked")
     rows = cur.fetchall()
     for row in rows:
         urls.append(row[1])
@@ -96,7 +97,7 @@ def SetFindFlag():
     if len(urls) != 0:
         for i in range(0, len(urls)):
             if start_url_maker == urls[i]:
-                cur.execute("UPDATE site set hits = '{}' where url = '{}'".format(hits_url[i] + 1, start_url_maker));
+                cur.execute("UPDATE api_urlchecked set hits = '{}' where url = '{}'".format(hits_url[i] + 1, start_url_maker));
                 conn.commit()
                 return True
     return False
@@ -104,7 +105,7 @@ def SetFindFlag():
 
 # Insert a new URL if record doesn't exist before
 def InsertURL():
-    cur.execute("INSERT INTO site (url, hits,broken_links_num) \
+    cur.execute("INSERT INTO api_urlchecked (url, hits,broken_links_num) \
                                           VALUES ('{}', '{}' , '{}')".format(start_url_maker, 1, 0));
     conn.commit()
 
@@ -223,7 +224,7 @@ def SetInDatabase(broken_links_count):
     urls_db = []
     hits_db = []
 
-    cur.execute("SELECT id, url, hits, broken_links_num from site")
+    cur.execute("SELECT id, url, hits, broken_links_num from api_urlchecked")
     rows = cur.fetchall()
     for row in rows:
         urls_db.append(row[1])
@@ -233,7 +234,7 @@ def SetInDatabase(broken_links_count):
         for i in range(0, len(urls_db)):
             if start_url_maker_db == urls_db[i]:
                 print(broken_links_count)
-                cur.execute("UPDATE site set hits = '{}', broken_links_num = '{}' where url = '{}'".format(hits_db[i],
+                cur.execute("UPDATE api_urlchecked set hits = '{}', broken_links_num = '{}' where url = '{}'".format(hits_db[i],
                                                                                                            broken_links_count,
                                                                                                            start_urls_db[
                                                                                                                0]));

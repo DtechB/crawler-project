@@ -12,7 +12,9 @@ def getSsl(url):
               " -H " + url)
     
 
+    
+
 url = sys.argv[1]
-#getSubdomains(url)
+getSubdomains(url)
 getSsl(url)
 #getCrawler("shahroodut.ac.ir")

@@ -29,3 +29,12 @@ class urlsUnchecked(models.Model):
 class urlsChecked(models.Model):
     userID = models.CharField(max_length=31)
     url = models.CharField(max_length=127)
+    
+class BrokenUrls(models.Model):
+    site_url = models.CharField(max_length=31)
+    broken_link = models.CharField(max_length=127)
+    
+class UrlChecked(models.Model):
+    url = models.CharField(max_length=31)
+    hits = models.IntegerField()
+    broken_links_num = models.IntegerField()
