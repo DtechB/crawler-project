@@ -1,5 +1,6 @@
 import os
 
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -69,3 +70,5 @@ def geturlsChecked(request):
 class SiteViewSet(viewsets.ModelViewSet):
     queryset = Site.objects.all()
     serializer_class = SiteSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['user__id']
