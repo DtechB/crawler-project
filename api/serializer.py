@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Subdomain, SecureSocketsLayersCertificate, urlsUnchecked, urlsChecked
+from .models import Subdomain, SecureSocketsLayersCertificate, urlsUnchecked, urlsChecked, Site
+
+
+class SiteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Site
+        fields = '__all__'
 
 
 class SubdomainSerializer(serializers.ModelSerializer):

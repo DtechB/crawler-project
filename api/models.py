@@ -17,7 +17,6 @@ class Site(models.Model):
         return f"{self.status} -- {self.url}"
 
 
-
 class Subdomain(models.Model):
     base = models.CharField(max_length=255)
     subdomain = models.CharField(max_length=511)
