@@ -9,16 +9,20 @@ class SiteSerializer(serializers.ModelSerializer):
 
 
 class SubdomainSerializer(serializers.ModelSerializer):
+    site = SiteSerializer()
+
     class Meta:
         model = Subdomain
-        fields = ('base', 'subdomain', 'ip')
+        fields = ('base', 'subdomain', 'ip', 'site')
 
 
 class SecureSocketsLayersCertificateSerializer(serializers.ModelSerializer):
+    site = SiteSerializer()
+
     class Meta:
         model = SecureSocketsLayersCertificate
         fields = ('url', 'issuedto', 'issuedby', 'validfrom', 'validto',
-                  'validdays', 'certivalid', 'certisn', 'certiver', 'certialgo', 'expired')
+                  'validdays', 'certivalid', 'certisn', 'certiver', 'certialgo', 'expired', 'site')
 
 
 class urlsUncheckedSerializer(serializers.ModelSerializer):
