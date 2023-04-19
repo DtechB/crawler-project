@@ -1,5 +1,12 @@
 import psycopg2
 import os
+import sys
+
+sys.path.insert(1 , 'modulds//ssl-checker')
+
+
+import ssl_checker
+
 
 def runAnalyzer(url):
     os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyze.py" + " " + url)
@@ -35,5 +42,5 @@ FetchBrokenLinks()
 # For loop for getting pending and run SSL, Subdomain and Crawler
 for i in pendingList:
     if i['status'] == "P":
-        runAnalyzer(i['url'])
+        ssl_checker.run(i['url'])
         UpdateUrlCondition(i['url'])

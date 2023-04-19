@@ -31,17 +31,17 @@ class Subdomain(models.Model):
 
 class SecureSocketsLayersCertificate(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
-    url = models.CharField(max_length=511)
-    issuedto = models.CharField(max_length=63)
-    issuedby = models.CharField(max_length=63)
-    validfrom = models.CharField(max_length=63)
-    validto = models.CharField(max_length=63)
-    validdays = models.CharField(max_length=63)
-    certivalid = models.CharField(max_length=63)
-    certisn = models.CharField(max_length=63)
-    certiver = models.CharField(max_length=63)
-    certialgo = models.CharField(max_length=63)
-    expired = models.CharField(max_length=63)
+    url = models.CharField(max_length=511, null=True)
+    issuedto = models.CharField(max_length=63, null=True)
+    issuedby = models.CharField(max_length=63, null=True)
+    validfrom = models.CharField(max_length=63, null=True)
+    validto = models.CharField(max_length=63, null=True)
+    validdays = models.CharField(max_length=63, null=True)
+    certivalid = models.CharField(max_length=63, null=True)
+    certisn = models.CharField(max_length=63, null=True)
+    certiver = models.CharField(max_length=63, null=True)
+    certialgo = models.CharField(max_length=63, null=True)
+    expired = models.CharField(max_length=63, null=True)
     def __str__(self):
         return f"{self.site}"
 
