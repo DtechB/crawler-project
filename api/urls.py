@@ -8,8 +8,7 @@ router.register(r'sites', views.SiteViewSet)
 urlpatterns = [
     path('subdomains/', views.getSubdomains),
     path('ssls/', views.getSecureSocketsLayersCertificate),
-    path('checked/', views.geturlsChecked),
-    path('unchecked/', views.urlsUncheckedView)
+    path('analyze/', views.runAnalyzer),
 ]
 
 urlpatterns += router.urls

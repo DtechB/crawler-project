@@ -12,9 +12,12 @@ class Site(models.Model):
     url = models.CharField(max_length=1024)
     status = models.CharField(max_length=1, choices=STATUS, default=STATUS_PENDING)
     user = models.ManyToManyField(User, related_name='site', blank=True)
-
+    # I Think it's better to show full string for this section
     def __str__(self):
-        return f"{self.status} -- {self.url}"
+        if self.status == 'P':
+            return f"Pending -- {self.url}"
+        else:
+            return f"Active -- {self.url}"
 
 
 class Subdomain(models.Model):
@@ -22,9 +25,12 @@ class Subdomain(models.Model):
     subdomain = models.CharField(max_length=511)
     ip = models.CharField(max_length=63)
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
+    def __str__(self):
+        return f"{self.base} : {self.subdomain}"
 
 
 class SecureSocketsLayersCertificate(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
     url = models.CharField(max_length=511)
     issuedto = models.CharField(max_length=63)
     issuedby = models.CharField(max_length=63)
@@ -36,26 +42,10 @@ class SecureSocketsLayersCertificate(models.Model):
     certiver = models.CharField(max_length=63)
     certialgo = models.CharField(max_length=63)
     expired = models.CharField(max_length=63)
-    site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
-
-
-class urlsUnchecked(models.Model):
-    userID = models.CharField(max_length=31)
-    url = models.CharField(max_length=127)
-
-
-class urlsChecked(models.Model):
-    userID = models.CharField(max_length=31)
-    url = models.CharField(max_length=127)
-
+    def __str__(self):
+        return f"{self.site}"
 
 class BrokenUrls(models.Model):
     site_url = models.CharField(max_length=31)
     broken_link = models.CharField(max_length=127)
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
-
-
-class UrlChecked(models.Model):
-    url = models.CharField(max_length=31)
-    hits = models.IntegerField()
-    broken_links_num = models.IntegerField()
