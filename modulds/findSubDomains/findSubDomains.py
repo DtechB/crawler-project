@@ -11,7 +11,6 @@ from gevent import monkey
 from gevent.pool import Pool
 from gevent.queue import PriorityQueue
 from multiprocessing import cpu_count
-from requests.packages.urllib3.util.ssl_ import create_urllib3_context
 
 warnings.simplefilter("ignore", category=UserWarning)
 # monkey.patch_all()

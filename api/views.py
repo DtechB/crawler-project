@@ -1,4 +1,3 @@
-import os
 import sys
 
 from django_filters.rest_framework import DjangoFilterBackend
@@ -50,7 +49,6 @@ def getSecureSocketsLayersCertificate(request):
 @api_view(['GET'])
 def runAnalyzer(request):
     if request.method == 'GET':
-        # os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyzer.py")
         Analyzer.analyze()
         return Response("Analyze Finished")
 

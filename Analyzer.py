@@ -1,14 +1,8 @@
 import psycopg2
-import os
-import sys
 from decouple import config
 
 from modulds.ssl_checker import ssl_checker
 from modulds.findSubDomains import findSubDomains
-
-
-# def runAnalyzer(url):
-#     os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyze.py" + " " + url)
 
 # Connect to database
 conn = psycopg2.connect(database="Alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
@@ -42,5 +36,5 @@ def analyze():
     data = FetchPendingLinks()
     for i in data:
         if i['status'] == "P":
-            ssl_checker.run( i['id'],i['url'])
+            ssl_checker.runSSLChecker( i['id'],i['url'])
             UpdateUrlCondition(i['url'])
