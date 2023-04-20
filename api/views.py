@@ -29,9 +29,15 @@ def getSubdomains(request):
 @api_view(['GET', 'POST'])
 def getSecureSocketsLayersCertificate(request):
     if request.method == 'GET':
-        secureSocketsLayersCertificate = SecureSocketsLayersCertificate.objects.all()
-        serializer = SecureSocketsLayersCertificateSerializer(
-            secureSocketsLayersCertificate, many=True)
+        site_id = request.GET.get('site')
+        if site_id:
+            try:
+                secureSocketsLayersCertificate = SecureSocketsLayersCertificate.objects.filter(site=site_id)
+            except SecureSocketsLayersCertificate.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+        else:
+            secureSocketsLayersCertificate = SecureSocketsLayersCertificate.objects.all()
+        serializer = SecureSocketsLayersCertificateSerializer(secureSocketsLayersCertificate, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
@@ -39,6 +45,7 @@ def getSecureSocketsLayersCertificate(request):
         data = SecureSocketsLayersCertificate.objects.filter(url=request.data['url']).values()
         serializer = SecureSocketsLayersCertificateSerializer(data, many=True)
         return Response(serializer.data)
+
 
 @api_view(['GET'])
 def runAnalyzer(request):
