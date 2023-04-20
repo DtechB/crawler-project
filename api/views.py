@@ -1,4 +1,5 @@
 import os
+import sys
 
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
@@ -8,6 +9,9 @@ from rest_framework import viewsets
 
 from .models import Subdomain, SecureSocketsLayersCertificate, Site
 from .serializer import SubdomainSerializer, SecureSocketsLayersCertificateSerializer, SiteSerializer
+
+sys.path.append("..")
+import Analyzer
 
 @api_view(['GET', 'POST'])
 def getSubdomains(request):
@@ -39,7 +43,8 @@ def getSecureSocketsLayersCertificate(request):
 @api_view(['GET'])
 def runAnalyzer(request):
     if request.method == 'GET':
-        os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyzer.py")
+        # os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyzer.py")
+        Analyzer.analyze()
         return Response("Analyze Finished")
 
 
