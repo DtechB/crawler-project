@@ -19,11 +19,12 @@ cur = conn.cursor()
 pendingList = []
 
 # Get List of pending from the database and added them into array
-def FetchBrokenLinks():
+def FetchPendingLinks():
     cur.execute("SELECT id, url, status from api_site")
     rows = cur.fetchall()
     for row in rows:
         pendingElement = {}
+        pendingElement.update({"id": row[0]})
         pendingElement.update({"url": row[1]})
         pendingElement.update({"status": row[2]})
         pendingList.append(pendingElement)
@@ -37,10 +38,10 @@ def UpdateUrlCondition(url):
         
         
 # Run the function
-FetchBrokenLinks()
+FetchPendingLinks()
 
 # For loop for getting pending and run SSL, Subdomain and Crawler
 for i in pendingList:
     if i['status'] == "P":
-        ssl_checker.run(i['url'])
+        ssl_checker.run( i['id'],i['url'])
         UpdateUrlCondition(i['url'])

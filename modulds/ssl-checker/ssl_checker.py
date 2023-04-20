@@ -20,20 +20,22 @@ cur = conn.cursor()
 
 sslList = []
 
-def AddSSL(url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired):
+
+def AddSSL(id, url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired):
     if url not in sslList:
         sslList.append(url)
-        stmt = "INSERT INTO api_securesocketslayerscertificate(url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired) VALUES ( %s , %s , %s , %s , %s , %s , %s , %s , %s , %s , %s )"
+        stmt = "INSERT INTO api_securesocketslayerscertificate(url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired, site_id) VALUES ( %s, %s , %s , %s , %s , %s , %s , %s , %s , %s , %s , %s )"
         cur.execute(stmt, (url, issuedTo, issuedBy, validFrom, validTo,
-                    validDays, certiValid, certiSN, certiVer, certiAlgo, expired))
+                    validDays, certiValid, certiSN, certiVer, certiAlgo, expired, id))
         conn.commit()
+
 
 class SSLChecker:
     total_valid = 0
     total_expired = 0
     total_failed = 0
     total_warning = 0
-    
+
     def get_cert(self, host, port):
         """ Connection to the host """
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -119,7 +121,7 @@ class SSLChecker:
 
         return context
 
-    def print_status(self, host, context):
+    def print_status(self, host, id,  context):
         """Print all the usefull info about host."""
         print('\t\tIssued domain: {}'.format(context[host]['issued_to']))
         print('\t\tIssued to: {}'.format(context[host]['issued_o']))
@@ -137,7 +139,7 @@ class SSLChecker:
             context[host]['cert_alg']))
 
         # Add broken URLs in database
-        AddSSL(context[host]['issued_to'], context[host]['issued_o'], context[host]['issuer_o'],
+        AddSSL(id,context[host]['issued_to'], context[host]['issued_o'], context[host]['issuer_o'],
                context[host]['valid_from'], context[host]['valid_till'], context[host]['validity_days'],
                context[host]['cert_valid'], context[host]['cert_sn'], context[host]['cert_ver'],
                context[host]['cert_alg'], context[host]['cert_exp'])
@@ -149,16 +151,16 @@ class SSLChecker:
             print('\t\t \\_ {}'.format(san.strip()))
         print('\n')
 
-    def show_result(self, parameter):
+    def show_result(self, id, url):
         context = {}
         start_time = datetime.now()
-        host = "shahroodut.ac.ir"
+        host = url
         host, port = self.filter_hostname(host)
         try:
             cert = self.get_cert(host, port)
             context[host] = self.get_cert_info(host, cert)
             context[host]['tcp_port'] = int(port)
-            self.print_status(host, context)
+            self.print_status(host, id, context)
         except SSL.SysCallError:
             self.total_failed += 1
         self.border_msg(
@@ -177,6 +179,6 @@ class SSLChecker:
         return host, port
 
 
-def run(parameter):
+def run(id, url):
     SSLCheckerObject = SSLChecker()
-    SSLCheckerObject.show_result(parameter)
+    SSLCheckerObject.show_result(id, url)
