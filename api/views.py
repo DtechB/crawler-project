@@ -1,4 +1,5 @@
 import os
+import sys
 
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
@@ -8,6 +9,9 @@ from rest_framework import viewsets
 
 from .models import Subdomain, SecureSocketsLayersCertificate, Site
 from .serializer import SubdomainSerializer, SecureSocketsLayersCertificateSerializer, SiteSerializer
+
+sys.path.append("..")
+import Analyzer
 
 @api_view(['GET', 'POST'])
 def getSubdomains(request):
@@ -25,9 +29,15 @@ def getSubdomains(request):
 @api_view(['GET', 'POST'])
 def getSecureSocketsLayersCertificate(request):
     if request.method == 'GET':
-        secureSocketsLayersCertificate = SecureSocketsLayersCertificate.objects.all()
-        serializer = SecureSocketsLayersCertificateSerializer(
-            secureSocketsLayersCertificate, many=True)
+        site_id = request.GET.get('site')
+        if site_id:
+            try:
+                secureSocketsLayersCertificate = SecureSocketsLayersCertificate.objects.filter(site=site_id)
+            except SecureSocketsLayersCertificate.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+        else:
+            secureSocketsLayersCertificate = SecureSocketsLayersCertificate.objects.all()
+        serializer = SecureSocketsLayersCertificateSerializer(secureSocketsLayersCertificate, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
@@ -36,10 +46,12 @@ def getSecureSocketsLayersCertificate(request):
         serializer = SecureSocketsLayersCertificateSerializer(data, many=True)
         return Response(serializer.data)
 
+
 @api_view(['GET'])
 def runAnalyzer(request):
     if request.method == 'GET':
-        os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyzer.py")
+        # os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyzer.py")
+        Analyzer.analyze()
         return Response("Analyze Finished")
 
 

@@ -3,6 +3,7 @@ import scrapy
 import validators
 import psycopg2
 from anytree import Node, RenderTree
+from decouple import config
 
 # Define variables
 links_array = []
@@ -38,7 +39,7 @@ sixth_depth_tree = []
 # Check connection with database
 def postgres_test():
     try:
-        conn = psycopg2.connect(database="Alpha", user="postgres", password="123", host="127.0.0.1",
+        conn = psycopg2.connect(database="Alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
                                 port="5432")
         conn.close()
         return True
@@ -48,7 +49,7 @@ def postgres_test():
 
 """ Connect to database
  Database is postgressSQL """
-conn = psycopg2.connect(database="Alpha", user="postgres", password="123", host="localhost", port="5432")
+conn = psycopg2.connect(database="Alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 
 
