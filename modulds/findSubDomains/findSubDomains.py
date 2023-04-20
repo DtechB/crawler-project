@@ -11,15 +11,17 @@ from gevent import monkey
 from gevent.pool import Pool
 from gevent.queue import PriorityQueue
 from multiprocessing import cpu_count
+from requests.packages.urllib3.util.ssl_ import create_urllib3_context
 
 warnings.simplefilter("ignore", category=UserWarning)
-monkey.patch_all()
+# monkey.patch_all()
+
+threads_count = 50
 
 conn = psycopg2.connect(database="Alpha", user=config("DATABASE_USERNAME"), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 
 subdomains = []
-
 
 # Fetch subdomains
 def FetchBrokenLinks():
@@ -39,15 +41,14 @@ def AddSubdomain(base, subdomain, ip):
 
 
 class SubNameBrute:
-    def __init__(self, target, options):
+    def __init__(self, target):
         self.start_time = time.time()
         self.target = target.strip()
-        self.options = options
         self.scan_count = self.found_count = 0
         self.console_width = os.get_terminal_size()[0] - 2
 
         # create dns resolver pool ~ workers
-        self.resolvers = [dns.resolver.Resolver(configure=False) for _ in range(options.threads)]
+        self.resolvers = [dns.resolver.Resolver(configure=False) for _ in range(50)]
         for resolver in self.resolvers:
             resolver.lifetime = resolver.timeout = 10.0
 
@@ -67,15 +68,12 @@ class SubNameBrute:
         self._load_subname('C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/next_sub.txt', self.subsubs)
 
         # results will save to target.txt
-
         global path
-
         path = os.path.join("results", target)
         if not os.path.exists(path):
             os.makedirs(path)
 
         self.outfile = open('%s/%s.txt' % (path, target), 'w')
-
         self.ip_dict = set()  #
         self.found_sub = set()
 
@@ -104,7 +102,7 @@ class SubNameBrute:
 
         pool.join()  # waiting for process finish
         self.dns_count = len(self.dns_servers)
-
+        
         sys.stdout.write('\n')
         dns_info = '[+] Found {} available DNS Servers in total'.format(self.dns_count)
         print(dns_info)
@@ -125,8 +123,7 @@ class SubNameBrute:
 
         try:
             resolver.nameservers = [server]
-
-            answers = resolver.query('public-dns-a.baidu.com')
+            answers = resolver.resolve('public-dns-a.baidu.com')
             if answers[0].address != '180.76.76.76':
                 raise Exception('incorrect DNS response')
             self.dns_servers.append(server)
@@ -136,7 +133,7 @@ class SubNameBrute:
         self._print_msg('[+] Check DNS Server %s < OK >   Found %s' % (server.ljust(16), len(self.dns_servers)))
 
     """
-        load sub names in dict/*.txt, one function would be enough
+        load sub names in C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/*.txt, one function would be enough
         file for read, subname_list for saving sub names
     """
 
@@ -193,7 +190,6 @@ class SubNameBrute:
     def _print_domain(self, msg):
         console_width = os.get_terminal_size()[0]
         msg = '\r' + msg + ' ' * (console_width - len(msg))
-        # msg = '\033[0;31;47m%s{}\033[0m'.format(msg)
         sys.stdout.write(msg)
 
     def _print_progress(self):
@@ -216,7 +212,7 @@ class SubNameBrute:
 
             try:
                 cur_sub_domain = sub + '.' + self.target
-                answers = self.resolvers[j].query(cur_sub_domain)
+                answers = self.resolvers[j].resolve(cur_sub_domain)
             except:
                 continue
 
@@ -260,9 +256,9 @@ class SubNameBrute:
         return False
 
     def run(self):
-        threads = [gevent.spawn(self._scan, i) for i in range(self.options.threads)]
+        threads = [gevent.spawn(self._scan, i) for i in range(threads_count)]
 
-        print('[*] Initializing %d threads' % self.options.threads)
+        print('[*] Initializing %d threads' % threads_count)
 
         try:
             gevent.joinall(threads)
@@ -276,7 +272,7 @@ def wildcard_test(dns_servers, domain, level=1):
     try:
         r = dns.resolver.Resolver(configure=False)
         r.nameservers = dns_servers
-        answers = r.query('lijiejie-not-existed-test.%s' % domain)
+        answers = r.resolve('lijiejie-not-existed-test.%s' % domain)
         ips = ', '.join(sorted([answer.address for answer in answers]))
         if level == 1:
             print('any-sub.%s\t%s' % (domain.ljust(30), ips))
@@ -287,7 +283,7 @@ def wildcard_test(dns_servers, domain, level=1):
         return domain
 
 
-if __name__ == '__main__':
+def runSubdomain(id, url):
     FetchBrokenLinks()
     parser = optparse.OptionParser('usage: %prog [options] target.com', version="%prog 2.0")
     parser.add_option('-f', dest='file', default='subnames.txt',
@@ -297,16 +293,11 @@ if __name__ == '__main__':
     parser.add_option('-t', '--threads', dest='threads', default=50, type=int,
                       help='Num of scan threads, 100 by default')
 
-    (options, args) = parser.parse_args()
-    if len(args) < 1:
-        parser.print_help()
-        sys.exit(0)
-
     # initialization ...
-    d = SubNameBrute(target=args[0], options=options)
-    wildcard_test(d.dns_servers, args[0])
+    d = SubNameBrute(target=url)
+    wildcard_test(d.dns_servers, url)
 
-    print('[*] Exploiting level-one sub domains of ', args[0])
+    print('[*] Exploiting level-one sub domains of ', url)
     print('[+] There are %d subs waiting for trying ...' % len(d.queue))
     print('--------------------------------------')
     d.run()
@@ -328,14 +319,13 @@ if __name__ == '__main__':
     print()
     sys.stdout.flush()
     print('%d subnames found in total' % len(d.found_sub))
-    print('[*] Results are saved to threes files starts with %s' % args)
 
     """
         save ips and domains to files
     """
 
-    ipFileName = args[0] + '-ip.txt'
-    subDomainsFileName = args[0] + '-subdomain.txt'
+    ipFileName = url + '-ip.txt'
+    subDomainsFileName = url + '-subdomain.txt'
 
     with open(os.path.join(path, ipFileName), 'w') as f:
         for ip in d.ip_dict:

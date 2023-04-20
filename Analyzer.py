@@ -3,10 +3,8 @@ import os
 import sys
 from decouple import config
 
-sys.path.insert(1 , 'modulds//ssl-checker')
-
-
-import ssl_checker
+from modulds.ssl_checker import ssl_checker
+from modulds.findSubDomains import findSubDomains
 
 
 # def runAnalyzer(url):
