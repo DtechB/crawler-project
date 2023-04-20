@@ -1,6 +1,7 @@
 import psycopg2
 import os
 import sys
+from decouple import config
 
 sys.path.insert(1 , 'modulds//ssl-checker')
 
@@ -12,7 +13,7 @@ def runAnalyzer(url):
     os.system("python C:/Users/MosKn/Desktop/crawler-project/Analyze.py" + " " + url)
 
 # Connect to database
-conn = psycopg2.connect(database="Alpha", user="postgres", password="123", host="localhost", port="5432")
+conn = psycopg2.connect(database="Alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 
 # Create an array for conainter of pending urls

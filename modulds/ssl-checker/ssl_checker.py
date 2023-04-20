@@ -1,6 +1,7 @@
 import socket
 import sys
 import psycopg2
+from decouple import config
 
 from datetime import datetime
 from ssl import PROTOCOL_TLSv1
@@ -14,8 +15,8 @@ except ImportError:
 
 """ Connect to database
 Database is postgressSQL """
-conn = psycopg2.connect(database="Alpha", user="postgres",
-                        password="123", host="localhost", port="5432")
+conn = psycopg2.connect(database="Alpha", user=config('DATABASE_USERNAME'),
+                        password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 
 sslList = []

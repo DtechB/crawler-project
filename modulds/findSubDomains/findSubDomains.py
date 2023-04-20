@@ -6,6 +6,7 @@ import time
 import optparse
 import os
 import psycopg2
+from decouple import config
 from gevent import monkey
 from gevent.pool import Pool
 from gevent.queue import PriorityQueue
@@ -14,7 +15,7 @@ from multiprocessing import cpu_count
 warnings.simplefilter("ignore", category=UserWarning)
 monkey.patch_all()
 
-conn = psycopg2.connect(database="Alpha", user="postgres", password="123", host="localhost", port="5432")
+conn = psycopg2.connect(database="Alpha", user=config("DATABASE_USERNAME"), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 
 subdomains = []
