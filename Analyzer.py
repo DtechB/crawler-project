@@ -2,10 +2,8 @@ import psycopg2
 import os
 import sys
 
-sys.path.insert(1 , 'modulds//ssl-checker')
-
-
-import ssl_checker
+from modulds.ssl_checker import ssl_checker
+from modulds.findSubDomains import findSubDomains
 
 
 def runAnalyzer(url):
@@ -43,5 +41,6 @@ FetchPendingLinks()
 # For loop for getting pending and run SSL, Subdomain and Crawler
 for i in pendingList:
     if i['status'] == "P":
-        ssl_checker.run( i['id'],i['url'])
+        ssl_checker.runSSLChecker( i['id'],i['url'])
+       # findSubDomains.runSubdomain(i['id'],i['url'])  it's need to handle why not counitue !!!
         UpdateUrlCondition(i['url'])
