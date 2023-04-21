@@ -17,12 +17,17 @@ warnings.simplefilter("ignore", category=UserWarning)
 
 threads_count = 50
 
-conn = psycopg2.connect(database="Alpha", user=config("DATABASE_USERNAME"), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
+absolute_path = os.path.dirname(__file__)
+
+conn = psycopg2.connect(database="Alpha", user=config(
+    "DATABASE_USERNAME"), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 
 subdomains = []
 
 # Fetch subdomains
+
+
 def FetchBrokenLinks():
     cur.execute("SELECT id, base, subdomain,ip from api_subdomain")
     rows = cur.fetchall()
@@ -47,7 +52,8 @@ class SubNameBrute:
         self.console_width = os.get_terminal_size()[0] - 2
 
         # create dns resolver pool ~ workers
-        self.resolvers = [dns.resolver.Resolver(configure=False) for _ in range(50)]
+        self.resolvers = [dns.resolver.Resolver(
+            configure=False) for _ in range(50)]
         for resolver in self.resolvers:
             resolver.lifetime = resolver.timeout = 10.0
 
@@ -60,11 +66,15 @@ class SubNameBrute:
         # load sub names
         self.subs = []  # subs in file
         self.goodsubs = []  # checks ok for further exploitation
-        self._load_subname('C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/subnames.txt', self.subs)
+        subnamesAddress = "dict/subnames.txt"
+        full_path_subname = os.path.join(absolute_path, subnamesAddress)
+        self._load_subname(full_path_subname, self.subs)
 
         # load sub.sub names
         self.subsubs = []
-        self._load_subname('C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/next_sub.txt', self.subsubs)
+        nextSubAddress = "dict/next_sub.txt"
+        full_path_nextSub = os.path.join(absolute_path, nextSubAddress)
+        self._load_subname(full_path_nextSub, self.subsubs)
 
         # results will save to target.txt
         global path
@@ -94,16 +104,19 @@ class SubNameBrute:
         pool = Pool(processors)
 
         # read dns ips and check one by one
-        for server in open('C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/dns_servers.txt').readlines():
+        dnsServersAddress = "dict/dns_servers.txt"
+        full_path_dnsServers = os.path.join(absolute_path, dnsServersAddress)
+        for server in open(full_path_dnsServers).readlines():
             server = server.strip()
             if server:
                 pool.apply_async(self._test_server, (server,))
 
         pool.join()  # waiting for process finish
         self.dns_count = len(self.dns_servers)
-        
+
         sys.stdout.write('\n')
-        dns_info = '[+] Found {} available DNS Servers in total'.format(self.dns_count)
+        dns_info = '[+] Found {} available DNS Servers in total'.format(
+            self.dns_count)
         print(dns_info)
 
         if self.dns_count == 0:
@@ -127,12 +140,14 @@ class SubNameBrute:
                 raise Exception('incorrect DNS response')
             self.dns_servers.append(server)
         except:
-            self._print_msg('[-] Check DNS Server %s <Fail>   Found %s' % (server.ljust(16), len(self.dns_servers)))
+            self._print_msg('[-] Check DNS Server %s <Fail>   Found %s' %
+                            (server.ljust(16), len(self.dns_servers)))
 
-        self._print_msg('[+] Check DNS Server %s < OK >   Found %s' % (server.ljust(16), len(self.dns_servers)))
+        self._print_msg('[+] Check DNS Server %s < OK >   Found %s' %
+                        (server.ljust(16), len(self.dns_servers)))
 
     """
-        load sub names in C:/Users/MosKn/Desktop/crawler-project/modulds/findSubDomains/dict/*.txt, one function would be enough
+        load sub names in findSubDomains/dict/*.txt, one function would be enough
         file for read, subname_list for saving sub names
     """
 
@@ -153,10 +168,12 @@ class SubNameBrute:
                         item = tmp_set.pop()
                         if item.find('{alphnum}') >= 0:
                             for _letter in 'abcdefghijklmnopqrstuvwxyz0123456789':
-                                tmp_set.add(item.replace('{alphnum}', _letter, 1))
+                                tmp_set.add(item.replace(
+                                    '{alphnum}', _letter, 1))
                         elif item.find('{alpha}') >= 0:
                             for _letter in 'abcdefghijklmnopqrstuvwxyz':
-                                tmp_set.add(item.replace('{alpha}', _letter, 1))
+                                tmp_set.add(item.replace(
+                                    '{alpha}', _letter, 1))
                         elif item.find('{num}') >= 0:
                             for _letter in '0123456789':
                                 tmp_set.add(item.replace('{num}', _letter, 1))
@@ -175,15 +192,19 @@ class SubNameBrute:
             self.print_count = 0
             msg = '%s Found| %s Groups| %s scanned in %.1f seconds' % (
                 self.found_count, self.queue.qsize(), self.scan_count, time.time() - self.start_time)
-            sys.stdout.write('\r' + ' ' * (self.console_width - len(msg)) + msg)
+            sys.stdout.write(
+                '\r' + ' ' * (self.console_width - len(msg)) + msg)
         elif _msg.startswith('[+] Check DNS Server'):
-            sys.stdout.write('\r' + _msg + ' ' * (self.console_width - len(_msg)))
+            sys.stdout.write('\r' + _msg + ' ' *
+                             (self.console_width - len(_msg)))
         else:
-            sys.stdout.write('\r' + _msg + ' ' * (self.console_width - len(_msg)) + '\n')
+            sys.stdout.write('\r' + _msg + ' ' *
+                             (self.console_width - len(_msg)) + '\n')
             if _found_msg:
                 msg = '%s Found| %s Groups| %s scanned in %.1f seconds' % (
                     self.found_count, self.queue.qsize(), self.scan_count, time.time() - self.start_time)
-                sys.stdout.write('\r' + ' ' * (self.console_width - len(msg)) + msg)
+                sys.stdout.write(
+                    '\r' + ' ' * (self.console_width - len(msg)) + msg)
         sys.stdout.flush()
 
     def _print_domain(self, msg):
@@ -193,7 +214,8 @@ class SubNameBrute:
 
     def _print_progress(self):
         msg = '\033[0;31;47m%s\033[0m found | %s remaining | %s scanned in %.2f seconds' % \
-              (self.found_count, self.queue.qsize(), self.scan_count, time.time() - self.start_time)
+              (self.found_count, self.queue.qsize(),
+               self.scan_count, time.time() - self.start_time)
 
         console_width = os.get_terminal_size()[0]
         out = '\r' + ' ' * int((console_width - len(msg)) / 2) + msg
@@ -234,7 +256,7 @@ class SubNameBrute:
                 self.found_count += 1
                 ip_info = '{} \t {}'.format(cur_sub_domain, ips)
                 # print(ip_info)
-                AddSubdomain(self.target,cur_sub_domain, ips)
+                AddSubdomain(self.target, cur_sub_domain, ips)
                 self.outfile.write(cur_sub_domain + '\t' + ips + '\n')
                 self._print_domain(ip_info)
                 sys.stdout.flush()
@@ -263,7 +285,8 @@ class SubNameBrute:
             gevent.joinall(threads)
         except KeyboardInterrupt as e:
             msg = '[WARNING] User aborted.'
-            sys.stdout.write('\r' + msg + ' ' * (self.console_width - len(msg)) + '\n\r')
+            sys.stdout.write('\r' + msg + ' ' *
+                             (self.console_width - len(msg)) + '\n\r')
             sys.stdout.flush()
 
 
@@ -284,7 +307,8 @@ def wildcard_test(dns_servers, domain, level=1):
 
 def runSubdomain(id, url):
     FetchBrokenLinks()
-    parser = optparse.OptionParser('usage: %prog [options] target.com', version="%prog 2.0")
+    parser = optparse.OptionParser(
+        'usage: %prog [options] target.com', version="%prog 2.0")
     parser.add_option('-f', dest='file', default='subnames.txt',
                       help='Dictionary file, default is subnames.txt.')
     parser.add_option('--full', dest='full_scan', default=False, action='store_true',
