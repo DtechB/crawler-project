@@ -36,20 +36,21 @@ def FetchBrokenLinks():
 
 
 # Add subdomain
-def AddSubdomain(base, subdomain, ip):
+def AddSubdomain(base, subdomain, ip, site_id):
     if subdomain not in subdomains:
         subdomains.append(subdomain)
-        cur.execute("INSERT INTO api_subdomain (base, subdomain,ip) \
-                                                  VALUES ('{}', '{}', '{}')".format(base, subdomain, ip))
+        cur.execute("INSERT INTO api_subdomain (base, subdomain,ip, site_id) \
+                                                  VALUES ('{}', '{}', '{}', '{}')".format(base, subdomain, ip, site_id))
         conn.commit()
 
 
 class SubNameBrute:
-    def __init__(self, target):
+    def __init__(self, target, site_id):
         self.start_time = time.time()
         self.target = target.strip()
         self.scan_count = self.found_count = 0
         self.console_width = os.get_terminal_size()[0] - 2
+        self.site_id = site_id
 
         # create dns resolver pool ~ workers
         self.resolvers = [dns.resolver.Resolver(
@@ -256,7 +257,7 @@ class SubNameBrute:
                 self.found_count += 1
                 ip_info = '{} \t {}'.format(cur_sub_domain, ips)
                 # print(ip_info)
-                AddSubdomain(self.target, cur_sub_domain, ips)
+                AddSubdomain(self.target, cur_sub_domain, ips, self.site_id)
                 self.outfile.write(cur_sub_domain + '\t' + ips + '\n')
                 self._print_domain(ip_info)
                 sys.stdout.flush()
@@ -317,7 +318,7 @@ def runSubdomain(id, url):
                       help='Num of scan threads, 100 by default')
 
     # initialization ...
-    d = SubNameBrute(target=url)
+    d = SubNameBrute(target=url, site_id=id)
     wildcard_test(d.dns_servers, url)
 
     print('[*] Exploiting level-one sub domains of ', url)
