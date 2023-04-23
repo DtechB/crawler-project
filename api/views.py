@@ -15,8 +15,15 @@ import Analyzer
 @api_view(['GET', 'POST'])
 def getSubdomains(request):
     if request.method == 'GET':
-        subdomain = Subdomain.objects.all()
-        serializer = SubdomainSerializer(subdomain, many=True)
+        site_id = request.GET.get('site')
+        if site_id:
+            try:
+                subdomains = Subdomain.objects.filter(site=site_id)
+            except Subdomain.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+        else:
+            subdomains = Subdomain.objects.all()
+        serializer = SubdomainSerializer(subdomains, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
