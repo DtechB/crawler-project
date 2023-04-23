@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/DtechB/crawler-project/compare/v1.2.0...v1.3.0) (2023-04-23)
+
+
+### Features
+
+* add site filter to subdomain view ([3cb5823](https://github.com/DtechB/crawler-project/commit/3cb5823d7a377076ff45949fdf2cc4001a1430dd))
+* add site_id field to  subdomain checker ([dcdcb14](https://github.com/DtechB/crawler-project/commit/dcdcb14295f088a562256b7f7e2c8bcecf5b6808))
+
+
+### Bug Fixes
+
+* use database credential from env ([f789b9c](https://github.com/DtechB/crawler-project/commit/f789b9c624e81cf7a8eff08c858b06c1f964cbaa))
+
 ## [1.2.0](https://github.com/DtechB/crawler-project/compare/v1.1.0...v1.2.0) (2023-04-20)
 
 
