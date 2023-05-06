@@ -15,7 +15,7 @@ except ImportError:
 
 """ Connect to database
 Database is postgressSQL """
-conn = psycopg2.connect(database="Alpha", user=config('DATABASE_USERNAME'),
+conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'),
                         password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 

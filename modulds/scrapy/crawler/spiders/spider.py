@@ -4,6 +4,7 @@ import validators
 import psycopg2
 from anytree import Node, RenderTree
 from decouple import config
+import sys
 
 # Define variables
 links_array = []
@@ -12,9 +13,10 @@ broken_link_list = []
 
 # Get URL and Level of crawling
 # url_input = input("Enter URL to crawling: ")
-crawl_level = int(input("Enter Level of Crawling (set 0 for crawl just first page): "))
-
-#url_input = "cert.shahroodut.ac.ir"
+# crawl_level = int(input("Enter Level of Crawling (set 0 for crawl just first page): "))
+crawl_level = 2
+print(sys.argv)
+url_input = sys.argv[2]
     
 start_url_maker = "https://" + url_input + "/"
 crawl_level = 1
@@ -39,7 +41,7 @@ sixth_depth_tree = []
 # Check connection with database
 def postgres_test():
     try:
-        conn = psycopg2.connect(database="Alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
+        conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
                                 port="5432")
         conn.close()
         return True
@@ -49,7 +51,7 @@ def postgres_test():
 
 """ Connect to database
  Database is postgressSQL """
-conn = psycopg2.connect(database="Alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
+conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 
 

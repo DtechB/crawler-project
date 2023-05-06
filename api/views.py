@@ -6,8 +6,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import viewsets
 
-from .models import Subdomain, SecureSocketsLayersCertificate, Site
-from .serializer import SubdomainSerializer, SecureSocketsLayersCertificateSerializer, SiteSerializer
+from .models import Subdomain, SecureSocketsLayersCertificate, Site, Link
+from .serializer import SubdomainSerializer, SecureSocketsLayersCertificateSerializer, SiteSerializer, LinkSerializer
 
 sys.path.append("..")
 import Analyzer
@@ -65,3 +65,18 @@ class SiteViewSet(viewsets.ModelViewSet):
     serializer_class = SiteSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['user__id']
+
+
+@api_view(['GET'])
+def getLinks(request):
+    if request.method == 'GET':
+        site_id = request.GET.get('site')
+        if site_id:
+            try:
+                link = Link.objects.filter(site=site_id)
+            except Link.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+        else:
+            link = Link.objects.all()
+        serializer = LinkSerializer(link, many=True)
+        return Response(serializer.data)

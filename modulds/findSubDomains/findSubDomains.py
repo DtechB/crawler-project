@@ -19,7 +19,7 @@ threads_count = 50
 
 absolute_path = os.path.dirname(__file__)
 
-conn = psycopg2.connect(database="Alpha", user=config(
+conn = psycopg2.connect(database="alpha", user=config(
     "DATABASE_USERNAME"), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Subdomain, SecureSocketsLayersCertificate, Site
+from .models import Subdomain, SecureSocketsLayersCertificate, Site, Link
 
 
 class SiteSerializer(serializers.ModelSerializer):
@@ -23,3 +23,11 @@ class SecureSocketsLayersCertificateSerializer(serializers.ModelSerializer):
         model = SecureSocketsLayersCertificate
         fields = ('url', 'issuedto', 'issuedby', 'validfrom', 'validto',
                   'validdays', 'certivalid', 'certisn', 'certiver', 'certialgo', 'expired', 'site')
+        
+
+class LinkSerializer(serializers.ModelSerializer):
+    site = SiteSerializer()
+
+    class Meta:
+        model = Link
+        fields = ('url', 'status_code', 'site')

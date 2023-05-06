@@ -1,12 +1,13 @@
 import psycopg2
 from decouple import config
 import requests
+import os
 
-from modulds.ssl_checker import ssl_checker
-from modulds.findSubDomains import findSubDomains
+# from modulds.ssl_checker import ssl_checker
+# from modulds.findSubDomains import findSubDomains
 
 # Connect to database
-conn = psycopg2.connect(database="Alpha", user=config(
+conn = psycopg2.connect(database="alpha", user=config(
     'DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost", port="5432")
 cur = conn.cursor()
 
@@ -30,8 +31,6 @@ def sendFinishOper(operation, url):
 pendingList = []
 
 # Get List of pending from the database and added them into array
-
-
 def FetchPendingLinks():
     cur.execute("SELECT id, url, status from api_site")
     rows = cur.fetchall()
@@ -58,12 +57,16 @@ def analyze():
     for i in data:
         if i['status'] == "P":
 
-            sendStartOper("SSL", i['url'])
-            ssl_checker.runSSLChecker(i['id'], i['url'])
-            sendFinishOper("SSL", i['url'])
+            # sendStartOper("SSL", i['url'])
+            # ssl_checker.runSSLChecker(i['id'], i['url'])
+            # sendFinishOper("SSL", i['url'])
 
-            sendStartOper("Subdomain", i['url'])
-            findSubDomains.runSubdomain(i['id'], i['url'])
-            sendFinishOper("Subdomain", i['url'])
+            # sendStartOper("Subdomain", i['url'])
+            # findSubDomains.runSubdomain(i['id'], i['url'])
+            # sendFinishOper("Subdomain", i['url'])
+            
+            # sendStartOper("Crawler", i['url'])
+            # os.system('cmd /k "dir"')
+            # sendFinishOper("Crawler", i['url'])
 
             UpdateUrlCondition(i['url'])

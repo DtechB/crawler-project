@@ -9,6 +9,7 @@ urlpatterns = [
     path('subdomains/', views.getSubdomains),
     path('ssls/', views.getSecureSocketsLayersCertificate),
     path('analyze/', views.runAnalyzer),
+    path('links/', views.getLinks),
 ]
 
 urlpatterns += router.urls
