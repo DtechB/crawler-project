@@ -2,9 +2,22 @@ import psycopg2
 from decouple import config
 import requests
 import os
-
 # from modulds.ssl_checker import ssl_checker
 # from modulds.findSubDomains import findSubDomains
+from modulds.crawler import scrapy_crawler
+
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 
 # Connect to database
 conn = psycopg2.connect(database="alpha", user=config(
@@ -31,6 +44,8 @@ def sendFinishOper(operation, url):
 pendingList = []
 
 # Get List of pending from the database and added them into array
+
+
 def FetchPendingLinks():
     cur.execute("SELECT id, url, status from api_site")
     rows = cur.fetchall()
@@ -53,6 +68,7 @@ def UpdateUrlCondition(url):
 
 # For loop for getting pending and run SSL, Subdomain and Crawler
 def analyze():
+    print(bcolors.OKBLUE + "--- Analyzer Started ---" + bcolors.ENDC)
     data = FetchPendingLinks()
     for i in data:
         if i['status'] == "P":
@@ -64,9 +80,10 @@ def analyze():
             # sendStartOper("Subdomain", i['url'])
             # findSubDomains.runSubdomain(i['id'], i['url'])
             # sendFinishOper("Subdomain", i['url'])
-            
+
+            print(bcolors.OKBLUE + "--- Crawler started ---" + bcolors.ENDC)
             # sendStartOper("Crawler", i['url'])
-            # os.system('cmd /k "dir"')
+            scrapy_crawler.runCrawler()
             # sendFinishOper("Crawler", i['url'])
 
             UpdateUrlCondition(i['url'])
