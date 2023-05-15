@@ -46,11 +46,13 @@ def get_pending_sites():
             pending_sites.append(pending_element)
 
 def runCrawler():
-    os.chdir('./modulds')
-    os.chdir('./scrapy')
+    if os.listdir().count("Scrapyinterface.py") != 1:
+        os.chdir('./modulds')
+        os.chdir('./scrapy')
+    print("Start")
+    get_pending_sites()
     for i in pending_sites:
         os.system('scrapy crawl spider -a id=' + str(i['id']) + ' -a url=' + i['url'])
 
 
-get_pending_sites()
 runCrawler()

@@ -7,6 +7,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -23,6 +24,7 @@ class bcolors:
 links_array = []
 internal_links = []
 broken_link_list = []
+checked_before = []
 
 # Get URL and Level of crawling
 crawl_level = 2
@@ -34,6 +36,8 @@ start_url_maker = "https://" + url_input + "/"
 urls = []
 
 # Database connection
+
+
 def database_test():
     try:
         conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
@@ -42,6 +46,7 @@ def database_test():
         return True
     except:
         return False
+
 
 if database_test():
     conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
@@ -54,30 +59,45 @@ else:
           "The connection with the database could not be established !" + bcolors.ENDC)
 
 # This function is currently not available
+
+
 def add_link_to_database(link, site_id):
     cur.execute("INSERT INTO api_link (url, status_code , site_id) \
                                               VALUES ('{}', '{}', '{}')".format(link, 1, site_id))
     conn.commit()
 
 
-session = requests.Session()
-retry = Retry(connect=1, backoff_factor=0.5)
-adapter = HTTPAdapter(max_retries=retry)
 
 def validate_url(url):
+    session = requests.Session()
+    retry = Retry(connect=1, backoff_factor=0.5)
+    adapter = HTTPAdapter(max_retries=retry)
     try:
         session.mount(url, adapter)
         # print(url + " : " + str(session.get(url, timeout=2).status_code))
-        return session.get(url).status_code
+        return session.get(url, timeout=2).status_code
     except:
         return 0
-    
+
+
 def set_status_links_in_database(url, status, site_id):
     cur.execute("INSERT INTO api_link (url, status_code , site_id) \
                                               VALUES ('{}', '{}', '{}')".format(url, status, site_id))
     conn.commit()
 
+
+def save_in_database(link):
+    # Check Validation of link and get status
+    validation_url = validate_url(link)
+    if validation_url == 200:
+        print(bcolors.OKGREEN + "link " + link + " is: " + str(validation_url) + bcolors.ENDC)
+    else:
+        print(bcolors.FAIL + "link " + link + " is: " + str(validation_url) + bcolors.ENDC)
+    set_status_links_in_database(link, validation_url, site_id)
+
+
 site_id = sys.argv[3].split('=')[1]
+
 
 class Spider(scrapy.Spider):
     print(bcolors.OKBLUE + "--- Spider crawler " +
@@ -99,14 +119,18 @@ class Spider(scrapy.Spider):
                         print(bcolors.OKCYAN + link + bcolors.ENDC)
                         if link.find(allowed_domains[0]) != -1:
                             internal_links.append(link)
+                else:
+                    full_url_string = self.start_urls[0][:-1] + link
+                    if full_url_string not in links_array:
+                        links_array.append(full_url_string)
+                        print(bcolors.OKCYAN + full_url_string + bcolors.ENDC)
+                        if full_url_string.find(allowed_domains[0]) != -1:
+                            internal_links.append(full_url_string)
 
         for k in range(0, crawl_level):
             for internal_link in internal_links:
-                yield scrapy.Request(url=internal_link, callback=self.parse)
-    
-    for link in links_array:
-        validation_url = validate_url(link)  # Check Validation of link and get status
-        set_status_links_in_database(link, validation_url, site_id)
+                if checked_before.count(internal_link) == 0:
+                    checked_before.append(internal_link)
+                    save_in_database(internal_link)
+                    yield scrapy.Request(url=internal_link, callback=self.parse)
 
-    print(bcolors.OKBLUE + "--- Spider crawler " +
-        url_input + " Finished ---" + bcolors.ENDC)

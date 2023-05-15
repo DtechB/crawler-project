@@ -2,9 +2,9 @@ import psycopg2
 from decouple import config
 import requests
 import os
-# from modulds.ssl_checker import ssl_checker
-# from modulds.findSubDomains import findSubDomains
-from modulds.crawler import scrapy_crawler
+from modulds.ssl_checker import ssl_checker
+from modulds.findSubDomains import findSubDomains
+from modulds.scrapy import Scrapyinterface
 
 
 class bcolors:
@@ -74,16 +74,16 @@ def analyze():
         if i['status'] == "P":
 
             # sendStartOper("SSL", i['url'])
-            # ssl_checker.runSSLChecker(i['id'], i['url'])
+            ssl_checker.runSSLChecker(i['id'], i['url'])
             # sendFinishOper("SSL", i['url'])
 
             # sendStartOper("Subdomain", i['url'])
-            # findSubDomains.runSubdomain(i['id'], i['url'])
+            findSubDomains.runSubdomain(i['id'], i['url'])
             # sendFinishOper("Subdomain", i['url'])
 
             print(bcolors.OKBLUE + "--- Crawler started ---" + bcolors.ENDC)
             # sendStartOper("Crawler", i['url'])
-            scrapy_crawler.runCrawler()
+            Scrapyinterface.runCrawler()
             # sendFinishOper("Crawler", i['url'])
 
             UpdateUrlCondition(i['url'])
