@@ -80,9 +80,10 @@ def crawl(url, max_urls=30):
 
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description="Link Extractor Tool with Python")
+    parser = argparse.ArgumentParser(
+        description="Link Extractor Tool with Python")
     parser.add_argument("url", help="The URL to extract links from.")
-    
+
     args = parser.parse_args()
     url = args.url
     max_urls = 30
@@ -104,4 +105,3 @@ if __name__ == "__main__":
     with open(f"{domain_name}_external_links.txt", "w") as f:
         for external_link in external_urls:
             print(external_link.strip(), file=f)
-        

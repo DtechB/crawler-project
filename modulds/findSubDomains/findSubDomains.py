@@ -11,6 +11,7 @@ from gevent import monkey
 from gevent.pool import Pool
 from gevent.queue import PriorityQueue
 from multiprocessing import cpu_count
+from datetime import datetime
 
 warnings.simplefilter("ignore", category=UserWarning)
 # monkey.patch_all()
@@ -39,8 +40,8 @@ def FetchBrokenLinks():
 def AddSubdomain(base, subdomain, ip, site_id):
     if subdomain not in subdomains:
         subdomains.append(subdomain)
-        cur.execute("INSERT INTO api_subdomain (base, subdomain,ip, site_id) \
-                                                  VALUES ('{}', '{}', '{}', '{}')".format(base, subdomain, ip, site_id))
+        cur.execute("INSERT INTO api_subdomain (created_at, base, subdomain,ip, site_id) \
+                                                  VALUES ('{}', '{}', '{}', '{}', '{}')".format(str(datetime.now()), base, subdomain, ip, site_id))
         conn.commit()
 
 
