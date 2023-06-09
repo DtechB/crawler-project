@@ -100,6 +100,16 @@ def getStatistics(request):
             .values('day') \
             .annotate(count=Count('id')).order_by('day')
 
+        sites_count_by_day = Site.objects.filter(created_at__gte=last_week) \
+            .extra({'day': 'date(created_at)'}) \
+            .values('day') \
+            .annotate(count=Count('id')).order_by('day')
+
+        subdomain_count_by_day = Subdomain.objects.filter(created_at__gte=last_week) \
+            .extra({'day': 'date(created_at)'}) \
+            .values('day') \
+            .annotate(count=Count('id')).order_by('day')
+
         # Calculate the start date and end date for last week
         last_week_start = today - timedelta(days=6)
         last_week_end = today
@@ -107,6 +117,8 @@ def getStatistics(request):
         # Create an empty list to store the dates
         dates_last_week = []
         link_counts = []
+        site_counts = []
+        sub_counts = []
 
         # Loop through each day of the last week and append it to the list
         current_date = last_week_start
@@ -116,9 +128,22 @@ def getStatistics(request):
 
         for d in dates_last_week:
             count = 0
+            count1 = 0
+            count2 = 0
             for link_count in link_count_by_day:
                 if link_count['day'] == d:
                     count = link_count['count']
-            link_counts.append(count)
 
-        return Response(link_counts)
+            for site_count in sites_count_by_day:
+                if site_count['day'] == d:
+                    count1 = site_count['count']
+
+            for sub_count in subdomain_count_by_day:
+                if sub_count['day'] == d:
+                    count2 = sub_count['count']
+
+            link_counts.append(count)
+            site_counts.append(count1)
+            sub_counts.append(count2)
+
+        return Response({"links": link_counts, "sites": site_counts, "subs": sub_counts})
