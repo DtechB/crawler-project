@@ -4,6 +4,7 @@ import psycopg2
 from decouple import config
 import sys
 import requests
+from datetime import datetime
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
@@ -40,7 +41,7 @@ urls = []
 
 def database_test():
     try:
-        conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
+        conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost",
                                 port="5432")
         conn.close()
         return True
@@ -49,7 +50,7 @@ def database_test():
 
 
 if database_test():
-    conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
+    conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost",
                             port="5432")
     cur = conn.cursor()
     print(bcolors.OKGREEN +
@@ -67,7 +68,6 @@ def add_link_to_database(link, site_id):
     conn.commit()
 
 
-
 def validate_url(url):
     session = requests.Session()
     retry = Retry(connect=1, backoff_factor=0.5)
@@ -81,8 +81,8 @@ def validate_url(url):
 
 
 def set_status_links_in_database(url, status, site_id):
-    cur.execute("INSERT INTO api_link (url, status_code , site_id) \
-                                              VALUES ('{}', '{}', '{}')".format(url, status, site_id))
+    cur.execute("INSERT INTO api_link (created_at, url, status_code , site_id) \
+                                              VALUES ('{}', '{}', '{}', '{}')".format(str(datetime.now()), url, status, site_id))
     conn.commit()
 
 
@@ -90,9 +90,11 @@ def save_in_database(link):
     # Check Validation of link and get status
     validation_url = validate_url(link)
     if validation_url == 200:
-        print(bcolors.OKGREEN + "link " + link + " is: " + str(validation_url) + bcolors.ENDC)
+        print(bcolors.OKGREEN + "link " + link +
+              " is: " + str(validation_url) + bcolors.ENDC)
     else:
-        print(bcolors.FAIL + "link " + link + " is: " + str(validation_url) + bcolors.ENDC)
+        print(bcolors.FAIL + "link " + link + " is: " +
+              str(validation_url) + bcolors.ENDC)
     set_status_links_in_database(link, validation_url, site_id)
 
 
@@ -133,4 +135,3 @@ class Spider(scrapy.Spider):
                     checked_before.append(internal_link)
                     save_in_database(internal_link)
                     yield scrapy.Request(url=internal_link, callback=self.parse)
-

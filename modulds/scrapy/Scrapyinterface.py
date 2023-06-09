@@ -15,7 +15,7 @@ class bcolors:
 
 def database_test():
     try:
-        conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
+        conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost",
                                 port="5432")
         conn.close()
         return True
@@ -23,7 +23,7 @@ def database_test():
         return False
 
 if database_test():
-    conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="127.0.0.1",
+    conn = psycopg2.connect(database="alpha", user=config('DATABASE_USERNAME'), password=config('DATABASE_PASSWORD'), host="localhost",
                             port="5432")
     cur = conn.cursor()
     print(bcolors.OKGREEN +

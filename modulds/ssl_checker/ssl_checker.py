@@ -25,8 +25,8 @@ sslList = []
 def AddSSL(id, url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired):
     if url not in sslList:
         sslList.append(url)
-        stmt = "INSERT INTO api_securesocketslayerscertificate(url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired, site_id) VALUES ( %s, %s , %s , %s , %s , %s , %s , %s , %s , %s , %s , %s )"
-        cur.execute(stmt, (url, issuedTo, issuedBy, validFrom, validTo,
+        stmt = "INSERT INTO api_securesocketslayerscertificate(created_at, url, issuedTo, issuedBy, validFrom, validTo, validDays, certiValid, certiSN, certiVer, certiAlgo, expired, site_id) VALUES (%s, %s, %s , %s , %s , %s , %s , %s , %s , %s , %s , %s , %s )"
+        cur.execute(stmt, (str(datetime.now()), url, issuedTo, issuedBy, validFrom, validTo,
                     validDays, certiValid, certiSN, certiVer, certiAlgo, expired, id))
         conn.commit()
 
@@ -140,7 +140,7 @@ class SSLChecker:
             context[host]['cert_alg']))
 
         # Add broken URLs in database
-        AddSSL(id,context[host]['issued_to'], context[host]['issued_o'], context[host]['issuer_o'],
+        AddSSL(id, context[host]['issued_to'], context[host]['issued_o'], context[host]['issuer_o'],
                context[host]['valid_from'], context[host]['valid_till'], context[host]['validity_days'],
                context[host]['cert_valid'], context[host]['cert_sn'], context[host]['cert_ver'],
                context[host]['cert_alg'], context[host]['cert_exp'])

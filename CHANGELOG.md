@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/DtechB/crawler-project/compare/v1.3.0...v1.4.0) (2023-06-09)
+
+
+### Features
+
+* add statistics api endpoint ([926d642](https://github.com/DtechB/crawler-project/commit/926d642c35d526919c8c9d16a4ab18c079470dd4))
+* return sites and subdomains statistics api ([9b8f1d7](https://github.com/DtechB/crawler-project/commit/9b8f1d7126058a726c9905b8710d89c8256228cf))
+
 ## [1.3.0](https://github.com/DtechB/crawler-project/compare/v1.2.0...v1.3.0) (2023-04-23)
 
 

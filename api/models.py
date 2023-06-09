@@ -13,6 +13,7 @@ class Site(models.Model):
     status = models.CharField(
         max_length=1, choices=STATUS, default=STATUS_PENDING)
     user = models.ManyToManyField(User, related_name='site', blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     # I Think it's better to show full string for this section
 
     def __str__(self):
@@ -27,6 +28,7 @@ class Subdomain(models.Model):
     subdomain = models.CharField(max_length=511)
     ip = models.CharField(max_length=63)
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.base} : {self.subdomain}"
@@ -45,6 +47,7 @@ class SecureSocketsLayersCertificate(models.Model):
     certiver = models.CharField(max_length=63, null=True)
     certialgo = models.CharField(max_length=63, null=True)
     expired = models.CharField(max_length=63, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.site}"
@@ -54,8 +57,10 @@ class Crawler(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
     url = models.CharField(max_length=31)
     broken_link = models.CharField(max_length=2047)
-    
+
+
 class Link(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
     url = models.CharField(max_length=255)
     status_code = models.IntegerField(default=200)
+    created_at = models.DateTimeField(auto_now_add=True)
